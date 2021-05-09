@@ -1,10 +1,14 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+## KNIME files
+.knimeLock
+.project
+.savedWithData
+workflowset.meta
 
-# C extensions
-*.so
+## KNIME directories containing node data
+internal/
+port_*/
+.metadata/
+internalTables/
 
 # Distribution / packaging
 .Python
@@ -131,3 +135,13 @@ dmypy.json
 # knime#
 ExampleWorkflows
 .metadata
+
+# Packages #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
