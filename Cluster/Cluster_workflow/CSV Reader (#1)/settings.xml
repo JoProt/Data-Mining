@@ -25,7 +25,7 @@
 <entry key="location_present" type="xboolean" value="true"/>
 <entry key="file_system_type" type="xstring" value="RELATIVE"/>
 <entry key="file_system_specifier" type="xstring" value="knime.workflow"/>
-<entry key="path" type="xstring" value="../../data/StudentsPerformance.csv"/>
+<entry key="path" type="xstring" value="../../data/processed_data.csv"/>
 </config>
 <config key="filter_mode_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_FilterMode"/>
@@ -64,10 +64,10 @@
 <entry key="autodetect_buffer_size" type="xint" value="1048576"/>
 </config>
 <config key="table_spec_config_Internals">
-<entry key="root_path_Internals" type="xstring" value="../../data/StudentsPerformance.csv"/>
+<entry key="root_path_Internals" type="xstring" value="../../data/processed_data.csv"/>
 <config key="datatable_spec_Internals">
 <entry key="spec_name" type="xstring" value="default"/>
-<entry key="number_columns" type="xint" value="8"/>
+<entry key="number_columns" type="xint" value="9"/>
 <config key="column_spec_0">
 <entry key="column_name" type="xstring" value="gender"/>
 <config key="element_names">
@@ -81,7 +81,7 @@
 <config key="meta_data"/>
 </config>
 <config key="column_spec_1">
-<entry key="column_name" type="xstring" value="race/ethnicity"/>
+<entry key="column_name" type="xstring" value="group"/>
 <config key="element_names">
 <entry key="array-size" type="xint" value="0"/>
 </config>
@@ -93,7 +93,7 @@
 <config key="meta_data"/>
 </config>
 <config key="column_spec_2">
-<entry key="column_name" type="xstring" value="parental level of education"/>
+<entry key="column_name" type="xstring" value="parental education"/>
 <config key="element_names">
 <entry key="array-size" type="xint" value="0"/>
 </config>
@@ -117,7 +117,7 @@
 <config key="meta_data"/>
 </config>
 <config key="column_spec_4">
-<entry key="column_name" type="xstring" value="test preparation course"/>
+<entry key="column_name" type="xstring" value="preparation"/>
 <config key="element_names">
 <entry key="array-size" type="xint" value="0"/>
 </config>
@@ -129,7 +129,7 @@
 <config key="meta_data"/>
 </config>
 <config key="column_spec_5">
-<entry key="column_name" type="xstring" value="math score"/>
+<entry key="column_name" type="xstring" value="math"/>
 <config key="element_names">
 <entry key="array-size" type="xint" value="0"/>
 </config>
@@ -141,7 +141,7 @@
 <config key="meta_data"/>
 </config>
 <config key="column_spec_6">
-<entry key="column_name" type="xstring" value="reading score"/>
+<entry key="column_name" type="xstring" value="reading"/>
 <config key="element_names">
 <entry key="array-size" type="xint" value="0"/>
 </config>
@@ -153,7 +153,7 @@
 <config key="meta_data"/>
 </config>
 <config key="column_spec_7">
-<entry key="column_name" type="xstring" value="writing score"/>
+<entry key="column_name" type="xstring" value="writing"/>
 <config key="element_names">
 <entry key="array-size" type="xint" value="0"/>
 </config>
@@ -164,22 +164,35 @@
 <config key="column_properties"/>
 <config key="meta_data"/>
 </config>
+<config key="column_spec_8">
+<entry key="column_name" type="xstring" value="avg"/>
+<config key="element_names">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="column_type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+</config>
+<config key="column_domain"/>
+<config key="column_properties"/>
+<config key="meta_data"/>
+</config>
 </config>
 <config key="file_paths_Internals">
 <entry key="array-size" type="xint" value="1"/>
-<entry key="0" type="xstring" value="../../data/StudentsPerformance.csv"/>
+<entry key="0" type="xstring" value="../../data/processed_data.csv"/>
 </config>
 <config key="individual_specs_Internals">
 <config key="individual_spec_0">
-<entry key="array-size" type="xint" value="8"/>
+<entry key="array-size" type="xint" value="9"/>
 <entry key="0" type="xstring" value="gender"/>
-<entry key="1" type="xstring" value="race/ethnicity"/>
-<entry key="2" type="xstring" value="parental level of education"/>
+<entry key="1" type="xstring" value="group"/>
+<entry key="2" type="xstring" value="parental education"/>
 <entry key="3" type="xstring" value="lunch"/>
-<entry key="4" type="xstring" value="test preparation course"/>
-<entry key="5" type="xstring" value="math score"/>
-<entry key="6" type="xstring" value="reading score"/>
-<entry key="7" type="xstring" value="writing score"/>
+<entry key="4" type="xstring" value="preparation"/>
+<entry key="5" type="xstring" value="math"/>
+<entry key="6" type="xstring" value="reading"/>
+<entry key="7" type="xstring" value="writing"/>
+<entry key="8" type="xstring" value="avg"/>
 </config>
 </config>
 <config key="production_paths_Internals">
@@ -263,21 +276,32 @@
 <entry key="production_path_7_producer_dst" type="xstring" value="java.lang.Integer"/>
 <entry key="production_path_7_producer_name" type="xstring" value="java.lang.Integer"/>
 <config key="production_path_7_producer_config"/>
-<entry key="num_production_paths_Internals" type="xint" value="8"/>
+<entry key="production_path_8_converter" type="xstring" value="org.knime.core.data.def.DoubleCell$DoubleCellFactory.create(class java.lang.Double)"/>
+<entry key="production_path_8_converter_src" type="xstring" value="java.lang.Double"/>
+<entry key="production_path_8_converter_dst" type="xstring" value="Number (double)"/>
+<entry key="production_path_8_converter_name" type="xstring" value="Double"/>
+<config key="production_path_8_converter_config"/>
+<entry key="production_path_8_producer" type="xstring" value="class java.lang.Double-&gt;java.lang.Double"/>
+<entry key="production_path_8_producer_src" type="xstring" value="java.lang.Double"/>
+<entry key="production_path_8_producer_dst" type="xstring" value="java.lang.Double"/>
+<entry key="production_path_8_producer_name" type="xstring" value="java.lang.Double"/>
+<config key="production_path_8_producer_config"/>
+<entry key="num_production_paths_Internals" type="xint" value="9"/>
 </config>
 <config key="original_names_Internals">
-<entry key="array-size" type="xint" value="8"/>
+<entry key="array-size" type="xint" value="9"/>
 <entry key="0" type="xstring" value="gender"/>
-<entry key="1" type="xstring" value="race/ethnicity"/>
-<entry key="2" type="xstring" value="parental level of education"/>
+<entry key="1" type="xstring" value="group"/>
+<entry key="2" type="xstring" value="parental education"/>
 <entry key="3" type="xstring" value="lunch"/>
-<entry key="4" type="xstring" value="test preparation course"/>
-<entry key="5" type="xstring" value="math score"/>
-<entry key="6" type="xstring" value="reading score"/>
-<entry key="7" type="xstring" value="writing score"/>
+<entry key="4" type="xstring" value="preparation"/>
+<entry key="5" type="xstring" value="math"/>
+<entry key="6" type="xstring" value="reading"/>
+<entry key="7" type="xstring" value="writing"/>
+<entry key="8" type="xstring" value="avg"/>
 </config>
 <config key="positional_mapping_Internals">
-<entry key="array-size" type="xint" value="8"/>
+<entry key="array-size" type="xint" value="9"/>
 <entry key="0" type="xint" value="0"/>
 <entry key="1" type="xint" value="1"/>
 <entry key="2" type="xint" value="2"/>
@@ -286,9 +310,10 @@
 <entry key="5" type="xint" value="5"/>
 <entry key="6" type="xint" value="6"/>
 <entry key="7" type="xint" value="7"/>
+<entry key="8" type="xint" value="8"/>
 </config>
 <config key="keep_Internals">
-<entry key="array-size" type="xint" value="8"/>
+<entry key="array-size" type="xint" value="9"/>
 <entry key="0" type="xboolean" value="true"/>
 <entry key="1" type="xboolean" value="true"/>
 <entry key="2" type="xboolean" value="true"/>
@@ -297,8 +322,9 @@
 <entry key="5" type="xboolean" value="true"/>
 <entry key="6" type="xboolean" value="true"/>
 <entry key="7" type="xboolean" value="true"/>
+<entry key="8" type="xboolean" value="true"/>
 </config>
-<entry key="unknown_column_position_Internals" type="xint" value="8"/>
+<entry key="unknown_column_position_Internals" type="xint" value="9"/>
 <entry key="include_unknown_columns_Internals" type="xboolean" value="true"/>
 <entry key="enforce_types" type="xboolean" value="true"/>
 <entry key="column_filter_mode_Internals" type="xstring" value="UNION"/>
@@ -353,12 +379,12 @@
 <entry key="index" type="xint" value="1"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 1000, Cols: 8"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 1000, Cols: 9"/>
 <entry key="port_dir_location" type="xstring" value="port_1"/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="a84ff3a0-5fbd-4098-a1aa-6b8f1af9e9bc"/>
+<entry key="file_store_id" type="xstring" value="2333e3b1-b5bb-4109-8684-a1461ebcf580"/>
 </config>
 </config>
