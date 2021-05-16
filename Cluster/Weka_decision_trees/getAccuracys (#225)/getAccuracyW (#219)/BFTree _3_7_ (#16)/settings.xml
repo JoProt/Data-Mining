@@ -29,7 +29,7 @@
 </config>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="CONFIGURED"/>
 <entry key="factory" type="xstring" value="org.knime.ext.weka37.classifier.WekaClassifierNodeFactory"/>
 <entry key="node-name" type="xstring" value="BFTree (3.7)"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME WEKA nodes (3.7)"/>
@@ -46,25 +46,16 @@
 <entry key="weka_nodes_version" type="xstring" value="V112015"/>
 </config>
 <entry key="name" type="xstring" value="BFTree (3.7)"/>
-<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
 <config key="port_1">
 <entry key="index" type="xint" value="1"/>
-<entry key="port_spec_class" type="xstring" value="org.knime.ext.weka37.ports.WekaClassifierModelPortObjectSpec"/>
-<entry key="port_object_class" type="xstring" value="org.knime.ext.weka37.ports.WekaClassifierModelPortObject"/>
-<entry key="port_object_summary" type="xstring" value="BFTree"/>
-<entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
-<entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
-<entry key="port_dir_location" type="xstring" value="port_1"/>
+<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<<<<<<< HEAD:Cluster/Weka_decision_trees/getAccuracys (#225)/getAccuracyW (#219)/BFTree _3_7_ (#16)/settings.xml
-<entry key="file_store_id" type="xstring" value="47c96dce-0de8-4961-87cb-2c1026852b96"/>
-=======
-<entry key="file_store_id" type="xstring" value="fdb22070-aa29-40b8-bc68-1267242c1f24"/>
->>>>>>> main:Cluster/Weka_decision_trees/GetAccuracyF (#203)/Weka _ BFTRe (#19)/BFTree _3_7_ (#16)/settings.xml
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
 </config>
 </config>

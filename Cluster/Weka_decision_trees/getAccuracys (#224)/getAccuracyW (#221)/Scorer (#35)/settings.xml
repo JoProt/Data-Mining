@@ -32,36 +32,6 @@
 <entry key="class" type="xstring" value="DOUBLE"/>
 <entry key="value" type="xdouble" value="0.0"/>
 </config>
-<config key="Variable_5">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="Accuracy"/>
-<entry key="class" type="xstring" value="DOUBLE"/>
-<entry key="value" type="xdouble" value="0.69"/>
-</config>
-<config key="Variable_6">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="Error"/>
-<entry key="class" type="xstring" value="DOUBLE"/>
-<entry key="value" type="xdouble" value="0.31"/>
-</config>
-<config key="Variable_7">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="#Correct"/>
-<entry key="class" type="xstring" value="INTEGER"/>
-<entry key="value" type="xint" value="138"/>
-</config>
-<config key="Variable_8">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="#False"/>
-<entry key="class" type="xstring" value="INTEGER"/>
-<entry key="value" type="xint" value="62"/>
-</config>
-<config key="Variable_9">
-<entry key="type" type="xstring" value="variable"/>
-<entry key="name" type="xstring" value="Cohen's kappa"/>
-<entry key="class" type="xstring" value="DOUBLE"/>
-<entry key="value" type="xdouble" value="0.2990390050876199"/>
-</config>
 </config>
 <config key="internal_node_subsettings">
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
@@ -84,7 +54,7 @@
 </config>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="CONFIGURED"/>
 <entry key="factory" type="xstring" value="org.knime.base.node.mine.scorer.accuracy.AccuracyScorer2NodeFactory"/>
 <entry key="node-name" type="xstring" value="Scorer"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
@@ -97,30 +67,20 @@
 <entry key="node-feature-version" type="xstring" value="4.3.2.v202103021015"/>
 <config key="factory_settings"/>
 <entry key="name" type="xstring" value="Scorer"/>
-<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
 <config key="port_1">
 <entry key="index" type="xint" value="1"/>
-<entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
-<entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 2, Cols: 2"/>
-<entry key="port_dir_location" type="xstring" value="port_1"/>
+<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
 </config>
 <config key="port_2">
 <entry key="index" type="xint" value="2"/>
-<entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
-<entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 3, Cols: 11"/>
-<entry key="port_dir_location" type="xstring" value="port_2"/>
+<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<<<<<<< HEAD:Cluster/Weka_decision_trees/getAccuracys (#224)/getAccuracyW (#221)/Scorer (#35)/settings.xml
-<entry key="file_store_id" type="xstring" value="0287acbc-b5e0-4bfe-a88d-91959823a4fd"/>
-=======
-<entry key="file_store_id" type="xstring" value="b32f2351-5eae-40f7-929a-01a81313d369"/>
->>>>>>> main:Cluster/Weka_decision_trees/GetAccuracyF (#203)/Weka _ BFTRe (#19)/Scorer (#17)/settings.xml
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
 </config>
 </config>

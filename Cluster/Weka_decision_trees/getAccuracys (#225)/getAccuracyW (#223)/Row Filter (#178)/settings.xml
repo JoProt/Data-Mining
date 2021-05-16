@@ -28,7 +28,7 @@
 <config key="styles"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="CONFIGURED"/>
 <entry key="factory" type="xstring" value="org.knime.base.node.preproc.filter.row.RowFilterNodeFactory"/>
 <entry key="node-name" type="xstring" value="Row Filter"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
@@ -41,23 +41,16 @@
 <entry key="node-feature-version" type="xstring" value="4.3.2.v202103021015"/>
 <config key="factory_settings"/>
 <entry key="name" type="xstring" value="Row Filter"/>
-<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
 <config key="port_1">
 <entry key="index" type="xint" value="1"/>
-<entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
-<entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 1, Cols: 1"/>
-<entry key="port_dir_location" type="xstring" value="port_1"/>
+<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<<<<<<< HEAD:Cluster/Weka_decision_trees/getAccuracys (#225)/getAccuracyW (#223)/Row Filter (#178)/settings.xml
-<entry key="file_store_id" type="xstring" value="0546288b-a2ce-496e-9c6c-6ccf3a328ecd"/>
-=======
-<entry key="file_store_id" type="xstring" value="30c009ab-a384-445e-8055-0e9c471b03cf"/>
->>>>>>> main:Cluster/Weka_decision_trees/GetAccuracyF (#203)/Row Filter (#77)/settings.xml
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
 </config>
 </config>

@@ -28,7 +28,7 @@
 </config>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="CONFIGURED"/>
 <entry key="factory" type="xstring" value="org.knime.ext.weka37.classifier.WekaClassifierNodeFactory"/>
 <entry key="node-name" type="xstring" value="FT (3.7)"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME WEKA nodes (3.7)"/>
@@ -45,25 +45,16 @@
 <entry key="weka_nodes_version" type="xstring" value="V112015"/>
 </config>
 <entry key="name" type="xstring" value="FT (3.7)"/>
-<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
 <config key="port_1">
 <entry key="index" type="xint" value="1"/>
-<entry key="port_spec_class" type="xstring" value="org.knime.ext.weka37.ports.WekaClassifierModelPortObjectSpec"/>
-<entry key="port_object_class" type="xstring" value="org.knime.ext.weka37.ports.WekaClassifierModelPortObject"/>
-<entry key="port_object_summary" type="xstring" value="FT"/>
-<entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
-<entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
-<entry key="port_dir_location" type="xstring" value="port_1"/>
+<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<<<<<<< HEAD:Cluster/Weka_decision_trees/getAccuracys (#225)/getAccuracyW (#221)/FT _3_7_ (#21)/settings.xml
-<entry key="file_store_id" type="xstring" value="c325351d-660c-4e20-8ab4-b6fafaf832c5"/>
-=======
-<entry key="file_store_id" type="xstring" value="c9bdd212-855c-4056-97dc-019e328d02a8"/>
->>>>>>> main:Cluster/Weka_decision_trees/GetAccuracyF (#203)/Weka _ FT (#39)/FT _3_7_ (#21)/settings.xml
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
 </config>
 </config>
