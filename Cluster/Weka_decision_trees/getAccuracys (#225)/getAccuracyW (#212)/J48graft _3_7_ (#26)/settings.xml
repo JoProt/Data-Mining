@@ -58,6 +58,10 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<<<<<<< HEAD:Cluster/Weka_decision_trees/getAccuracys (#225)/getAccuracyW (#212)/J48graft _3_7_ (#26)/settings.xml
 <entry key="file_store_id" type="xstring" value="9365d806-6c62-4b1f-a285-1b25b7b72516"/>
+=======
+<entry key="file_store_id" type="xstring" value="b55a2bf9-c666-4a88-bc00-9d0215b09df4"/>
+>>>>>>> main:Cluster/Weka_decision_trees/GetAccuracyF (#203)/Weka _ J48gr (#57)/J48graft _3_7_ (#26)/settings.xml
 </config>
 </config>

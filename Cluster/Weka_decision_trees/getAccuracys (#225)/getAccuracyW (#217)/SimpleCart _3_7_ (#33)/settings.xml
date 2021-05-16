@@ -60,6 +60,10 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<<<<<<< HEAD:Cluster/Weka_decision_trees/getAccuracys (#225)/getAccuracyW (#217)/SimpleCart _3_7_ (#33)/settings.xml
 <entry key="file_store_id" type="xstring" value="fbf8b3f0-021f-49f3-a3ef-4a0e872f010b"/>
+=======
+<entry key="file_store_id" type="xstring" value="1cb68689-1188-49c1-9df3-204739edd92b"/>
+>>>>>>> main:Cluster/Weka_decision_trees/GetAccuracyF (#203)/Weka _ Simpl (#73)/SimpleCart _3_7_ (#33)/settings.xml
 </config>
 </config>

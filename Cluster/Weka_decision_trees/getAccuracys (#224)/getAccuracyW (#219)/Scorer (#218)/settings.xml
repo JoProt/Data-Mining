@@ -117,6 +117,10 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<<<<<<< HEAD:Cluster/Weka_decision_trees/getAccuracys (#224)/getAccuracyW (#219)/Scorer (#218)/settings.xml
 <entry key="file_store_id" type="xstring" value="50cc415c-bbe0-46b3-bc7b-c033e6ea4097"/>
+=======
+<entry key="file_store_id" type="xstring" value="fbe11244-038f-4798-919b-bd73ca80c76f"/>
+>>>>>>> main:Cluster/Weka_decision_trees/GetAccuracyF (#201)/Weka _NBTree (#44)/Scorer (#41)/settings.xml
 </config>
 </config>

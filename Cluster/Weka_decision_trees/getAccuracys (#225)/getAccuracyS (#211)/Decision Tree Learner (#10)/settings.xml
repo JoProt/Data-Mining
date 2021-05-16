@@ -11,11 +11,16 @@
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="classifyColumn" type="xstring" value="gender"/>
-<config key="splitQualityMeasure_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<config key="numverRecordsToView_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="splitQualityMeasure" type="xstring" value="Gini index"/>
+<entry key="numverRecordsToView" type="xint" value="10000"/>
+<config key="minNumberRecordsPerNode_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="minNumberRecordsPerNode" type="xint" value="10"/>
 <config key="pruningMethod_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -26,16 +31,11 @@
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="enableReducedErrorPruning" type="xboolean" value="true"/>
-<config key="minNumberRecordsPerNode_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
+<config key="splitQualityMeasure_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="minNumberRecordsPerNode" type="xint" value="10"/>
-<config key="numverRecordsToView_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="numverRecordsToView" type="xint" value="10000"/>
+<entry key="splitQualityMeasure" type="xstring" value="Gini index"/>
 <config key="splitAverage_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -46,36 +46,30 @@
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="numProcessors" type="xint" value="4"/>
-<config key="skipColumnsWithoutDomain_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="skipColumnsWithoutDomain" type="xboolean" value="true"/>
-<config key="useFirstSplitColumn_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="useFirstSplitColumn" type="xboolean" value="false"/>
-<config key="firstSplitColumn_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<config key="maxNumNominalValues_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
 <entry key="EnabledStatus" type="xboolean" value="false"/>
 </config>
+<<<<<<< HEAD:Cluster/Weka_decision_trees/getAccuracys (#225)/getAccuracyS (#211)/Decision Tree Learner (#10)/settings.xml
 <entry key="firstSplitColumn" type="xstring" value="writing score"/>
+=======
+<entry key="maxNumNominalValues" type="xint" value="10"/>
+>>>>>>> main:Cluster/Weka_decision_trees/GetAccuracyF (#203)/Std _ DecTre (#196)/Decision Tree Learner (#10)/settings.xml
 <config key="binaryNominalSplit_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="binaryNominalSplit" type="xboolean" value="false"/>
-<config key="maxNumNominalValues_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
-<entry key="EnabledStatus" type="xboolean" value="false"/>
-</config>
-<entry key="maxNumNominalValues" type="xint" value="10"/>
 <config key="FilterNominalValuesFromParent_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="FilterNominalValuesFromParent" type="xboolean" value="false"/>
+<config key="skipColumnsWithoutDomain_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="skipColumnsWithoutDomain" type="xboolean" value="true"/>
 <config key="CFG_NOTRUECHILD_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -86,6 +80,16 @@
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="CFG_MISSINGSTRATEGY" type="xstring" value="lastPrediction"/>
+<config key="useFirstSplitColumn_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="useFirstSplitColumn" type="xboolean" value="false"/>
+<config key="firstSplitColumn_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="false"/>
+</config>
+<entry key="firstSplitColumn" type="xstring" value="avg"/>
 </config>
 <config key="variables">
 <entry key="version" type="xstring" value="V_2019_09_13"/>
@@ -139,6 +143,10 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<<<<<<< HEAD:Cluster/Weka_decision_trees/getAccuracys (#225)/getAccuracyS (#211)/Decision Tree Learner (#10)/settings.xml
 <entry key="file_store_id" type="xstring" value="c8e4d782-bb40-4bc0-a40e-054c84f4bcfe"/>
+=======
+<entry key="file_store_id" type="xstring" value="ad8375d1-33dc-4396-83f7-1e829b53ca0d"/>
+>>>>>>> main:Cluster/Weka_decision_trees/GetAccuracyF (#203)/Std _ DecTre (#196)/Decision Tree Learner (#10)/settings.xml
 </config>
 </config>

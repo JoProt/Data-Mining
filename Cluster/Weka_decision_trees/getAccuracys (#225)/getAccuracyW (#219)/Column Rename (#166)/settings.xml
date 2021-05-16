@@ -55,6 +55,10 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<<<<<<< HEAD:Cluster/Weka_decision_trees/getAccuracys (#225)/getAccuracyW (#219)/Column Rename (#166)/settings.xml
 <entry key="file_store_id" type="xstring" value="4ca1913b-e7ff-4986-bca6-5f1a5d0d3b80"/>
+=======
+<entry key="file_store_id" type="xstring" value="4d727b20-0668-4e53-bdce-8cb703327235"/>
+>>>>>>> main:Cluster/Weka_decision_trees/GetAccuracyF (#203)/Column Rename (#166)/settings.xml
 </config>
 </config>

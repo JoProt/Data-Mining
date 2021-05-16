@@ -126,6 +126,10 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<<<<<<< HEAD:Cluster/Weka_decision_trees/getAccuracys (#225)/Unpivoting (#133)/settings.xml
 <entry key="file_store_id" type="xstring" value="4b23acef-a3e2-4167-a388-ba82c3e033a7"/>
+=======
+<entry key="file_store_id" type="xstring" value="4b8e81dc-0834-4555-bdbc-ecc0370ec58b"/>
+>>>>>>> main:Cluster/Weka_decision_trees/Unpivoting (#204)/settings.xml
 </config>
 </config>

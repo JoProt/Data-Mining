@@ -19,7 +19,7 @@
 <entry key="x-coordinate" type="xint" value="263"/>
 <entry key="y-coordinate" type="xint" value="599"/>
 <entry key="width" type="xint" value="116"/>
-<entry key="height" type="xint" value="32"/>
+<entry key="height" type="xint" value="34"/>
 <entry key="alignment" type="xstring" value="CENTER"/>
 <entry key="borderSize" type="xint" value="0"/>
 <entry key="borderColor" type="xint" value="16777215"/>
@@ -70,6 +70,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="e2dca8d7-7392-4709-ac8d-7e6987b63537"/>
+<entry key="file_store_id" type="xstring" value="9677852d-6b1d-4641-a2f9-ac6ffa87a91b"/>
 </config>
 </config>

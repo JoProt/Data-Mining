@@ -38,7 +38,7 @@
 <entry key="x-coordinate" type="xint" value="1063"/>
 <entry key="y-coordinate" type="xint" value="319"/>
 <entry key="width" type="xint" value="115"/>
-<entry key="height" type="xint" value="32"/>
+<entry key="height" type="xint" value="30"/>
 <entry key="alignment" type="xstring" value="CENTER"/>
 <entry key="borderSize" type="xint" value="0"/>
 <entry key="borderColor" type="xint" value="16777215"/>
@@ -73,6 +73,10 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<<<<<<< HEAD:Cluster/Weka_decision_trees/getAccuracys (#224)/getAccuracyW (#212)/Weka Predictor _3_7_ (#55)/settings.xml
 <entry key="file_store_id" type="xstring" value="7c5d1c0c-74f0-4d7e-b980-3df1d64c4ca3"/>
+=======
+<entry key="file_store_id" type="xstring" value="35a5af50-916c-427e-ab98-556277db83a4"/>
+>>>>>>> main:Cluster/Weka_decision_trees/GetAccuracyF (#201)/Weka _ Decis (#74)/Weka Predictor _3_7_ (#7)/settings.xml
 </config>
 </config>
