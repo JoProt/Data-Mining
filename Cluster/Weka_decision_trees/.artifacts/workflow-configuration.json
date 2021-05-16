@@ -1,3 +1,8 @@
 
 {
+    "string-input-17": {
+        "label": "Label",
+        "type": "string",
+        "default": "lunch"
+    }
 }
