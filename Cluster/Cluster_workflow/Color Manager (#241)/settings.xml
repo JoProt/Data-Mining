@@ -6,68 +6,9 @@
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
 <config key="model">
-<entry key="palette_option" type="xstring" value="custom_set"/>
 <entry key="selected_column" type="xstring" value="Cluster"/>
 <entry key="is_nominal" type="xboolean" value="true"/>
-<entry key="cluster_0" type="xint" value="-12566464"/>
-<entry key="cluster_1" type="xint" value="-1893860"/>
-<entry key="cluster_2" type="xint" value="-5154520"/>
-<entry key="cluster_3" type="xint" value="-9814630"/>
-<entry key="cluster_4" type="xint" value="-14714700"/>
-<entry key="cluster_5" type="xint" value="-33024"/>
-<entry key="cluster_6" type="xint" value="-5054582"/>
-<entry key="cluster_7" type="xint" value="-147601"/>
-<config key="values">
-<entry key="array-size" type="xint" value="8"/>
-<config key="0">
-<entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
-<config key="org.knime.core.data.def.StringCell">
-<entry key="StringCell" type="xstring" value="cluster_0"/>
-</config>
-</config>
-<config key="1">
-<entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
-<config key="org.knime.core.data.def.StringCell">
-<entry key="StringCell" type="xstring" value="cluster_1"/>
-</config>
-</config>
-<config key="2">
-<entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
-<config key="org.knime.core.data.def.StringCell">
-<entry key="StringCell" type="xstring" value="cluster_2"/>
-</config>
-</config>
-<config key="3">
-<entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
-<config key="org.knime.core.data.def.StringCell">
-<entry key="StringCell" type="xstring" value="cluster_3"/>
-</config>
-</config>
-<config key="4">
-<entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
-<config key="org.knime.core.data.def.StringCell">
-<entry key="StringCell" type="xstring" value="cluster_4"/>
-</config>
-</config>
-<config key="5">
-<entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
-<config key="org.knime.core.data.def.StringCell">
-<entry key="StringCell" type="xstring" value="cluster_5"/>
-</config>
-</config>
-<config key="6">
-<entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
-<config key="org.knime.core.data.def.StringCell">
-<entry key="StringCell" type="xstring" value="cluster_6"/>
-</config>
-</config>
-<config key="7">
-<entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
-<config key="org.knime.core.data.def.StringCell">
-<entry key="StringCell" type="xstring" value="cluster_7"/>
-</config>
-</config>
-</config>
+<entry key="palette_option" type="xstring" value="set_1"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="EXECUTED"/>
@@ -105,6 +46,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="eb4d75da-dbd3-4406-a656-72c3f3d4aefa"/>
+<entry key="file_store_id" type="xstring" value="6ee02a8a-c6c0-49f3-aa6a-cbca10fcad2c"/>
 </config>
 </config>

@@ -6,9 +6,9 @@
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
 <config key="model">
-<entry key="palette_option" type="xstring" value="custom_set"/>
 <entry key="selected_column" type="xstring" value="Cluster"/>
 <entry key="is_nominal" type="xboolean" value="true"/>
+<entry key="palette_option" type="xstring" value="custom_set"/>
 <entry key="cluster_0" type="xint" value="-12566464"/>
 <entry key="cluster_1" type="xint" value="-1893860"/>
 <entry key="cluster_2" type="xint" value="-5154520"/>
@@ -105,6 +105,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="eb4d75da-dbd3-4406-a656-72c3f3d4aefa"/>
+<entry key="file_store_id" type="xstring" value="b452dda4-36e3-4151-9a33-e3e4f3b4154b"/>
 </config>
 </config>
