@@ -31,7 +31,14 @@
 <entry key="node-feature-version" type="xstring" value="4.3.2.v202103021015"/>
 <config key="factory_settings"/>
 <config key="node_creation_config">
-<config key="input"/>
+<config key="input">
+<config key="port_0">
+<entry key="object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
+</config>
+<config key="port_1">
+<entry key="object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
+</config>
+</config>
 <config key="Appended columns"/>
 </config>
 <entry key="name" type="xstring" value="Column Appender"/>
@@ -42,12 +49,12 @@
 <entry key="index" type="xint" value="1"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 12, Cols: 4"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 12, Cols: 8"/>
 <entry key="port_dir_location" type="xstring" value="port_1"/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="e0448a5f-e87b-410c-b550-e253662dee02"/>
+<entry key="file_store_id" type="xstring" value="f485e717-0657-4dd5-b4aa-019cfa02ffe4"/>
 </config>
 </config>
