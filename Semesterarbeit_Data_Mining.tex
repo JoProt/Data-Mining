@@ -223,10 +223,33 @@
 	
 \chapter{Grundlagen}
 
-Das Data Mining ist ein immer weiter polarisierendes Fachgebiet der Informatik, welches zunehmend Anwendung in Problemstellung der Forschung und der Industrie findet. Das klassische Data Mining befasst sich mit der automatischen Verarbeitung von nicht trivialen Daten und beschäftigt sich mit den Themen der Datenvorverarbeitung sowie mit Anwendungsfällen von Analysealgorithmen Bibtexkey\cite{Cleve2020}. Im Rahmen des Studienmoduls \glqq{}Wissenextraktion / Data Mining\grqq{} wurde ein Projekt bearbeitet, welches anhand eines gegebenen Datensatz der Data Science Plattform Kaggle.com Datensatz, die kennengelernten Vorverarbeitungsmechanismen sowie zwei Ausgewählte Analyseverfahren anwendet. 
+Das Data Mining ist ein immer weiter polarisierendes Fachgebiet der Informatik, welches zunehmend Anwendung in Problemstellung der Forschung und der Industrie findet. Das klassische Data Mining befasst sich mit der automatischen Verarbeitung von nicht trivialen Daten und beschäftigt sich mit den Themen der Datenvorverarbeitung sowie mit Anwendungsfällen von Analysealgorithmen \cite{Cleve2020}. Im Rahmen des Studienmoduls \glqq{}Wissenextraktion / Data Mining\grqq{} wurde ein Projekt bearbeitet, welches anhand eines gegebenen Datensatz der Data Science Plattform \href{www.kaggle.com}{Kaggle.com} Datensatz, die kennengelernten Vorverarbeitungsmechanismen sowie zwei Ausgewählte Analyseverfahren anwendet. 
 
 	\section{Datenvorverarbeitung}
+	Die Datenvorverarbeitung ist eines der ersten Schritte, welche in einem Data Mining Projekt angewendet werden\footnote{Nach der Datenbeschaffung von der Datenquelle}. Das Ziel ist es die Rohdaten so aufzubereiten, dass Analysealgorithmen einfach angewendet werden können und bestmögliche Ergebnisse liefern.
+	Damit die Daten entsprechen aufbereitet werden können, müssen zunächst die Daten verstanden werden. In der nächsten Sektion wird auf die Rohdaten eingegangen, welche für das Projekt zur Verfügung standen.
+	\newpage
+	\subsection{Daten}
+	Der Datensatz besteht aus acht Spalten und 1000 Zeilen.  Die Daten bestehen aus Testergebnissen in Mathe, Lesen und Schreiben anhand von verschiedenen Ausgangskriterien. Unterteilt wird in Geschlecht, ethnische Herkunft, Bildung der Eltern, welchen Typ Mittagessen eingenommen wurde \& und ob sich auf den Test vorbereitet wurde. 
+	\begin{figure}[!h]
+		\includegraphics[scale=0.65]{pictures/roh.png}
+		\caption{Auszug aus dem Rohdatensatz}
+	\end{figure}
+	\subsection{Vorverarbeitung}
+	Im nächsten Schritt werden die Daten in eine, für die Algortihmen einfacherer zu verarbeitende, Form gebracht. Umgestetzt wurde das mit dem folgendem Workflow.
+	\begin{figure}[!h]
+		\includegraphics[scale=0.50]{pictures/preprocessing.png}
+		\caption{Datenvorverarbeitung in KNIME}
+	\end{figure}
 	
+	Nach der Vorverarbeitung, wo sowohl Spalten umbenannt, Daten binarisiert, Durchschnittsergebnisse berechnet und weitere Bereinigungen durchgeführt wurden, ist folgende Tabelle entsanden
+	
+	\begin{figure}[!h]
+		\includegraphics[scale=0.47]{pictures/processed.png}
+		\caption{Datensatz nach der Vorverarbeitung }
+	\end{figure}
+	
+	Das Ergebnis der Vorverarbeitung ist die Eingangstabelle für die weiteren Analyse Algorithmen. Im Folgendem wird auf zwei Analysekonzepte aus der Vorlesung eingegangen. Das Konzept des Entscheidungsbaum und das der Cluster.
 	\section{Knime Knoten für Entscheidungsbäume}\label{tree:dec:nodes}
 		Knime selbst bietet einen `Decision Tree Learner' Knoten und die Extension von Weka biete eine Vielzahl von neuen Knoten für Entscheidungsbäume, welche im Folgenden kurz angesprochen seien.
 	
