@@ -274,3 +274,8 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+ExampleWorkflows
+Cluster
+Weka_decision_trees
+.metadata

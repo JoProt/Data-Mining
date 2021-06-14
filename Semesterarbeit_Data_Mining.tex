@@ -15,9 +15,9 @@
 % Konstanten festlegen
 %-----------------------------------------------------------------------------
 \newcommand{\VerfasserC}{Christoph Werner}
-\newcommand{\GeburtstagC}{16. Dezember 1998}
-\newcommand{\GeburtsortC}{Dannenberg/ Elbe}
-\newcommand{\EmailC}{j.prothmann@stud.hs-wismar.de}
+\newcommand{\GeburtstagC}{16. November 1993}
+\newcommand{\GeburtsortC}{Fürth (bayern)}
+\newcommand{\EmailC}{christoph.werner@stud.hs-wismar.de}
 
 \newcommand{\VerfasserJ}{Josef Prothmann}
 \newcommand{\GeburtstagJ}{16. Dezember 1998}
@@ -53,7 +53,7 @@
 \usepackage{booktabs}					% professionelle, typographisch richtige Tabellen
 \usepackage{cite}						% f�r LibTex
 %\usepackage{shortvrb}					% f�r Quellcode mit \begin{verbatim}
-\usepackage[binary-units=true]{siunitx}	% Darstellung von Si-Einheiten
+%\usepackage[binary-units=true]{siunitx}	% Darstellung von Si-Einheiten
 %\usepackage{pdfpages}					% pdf-Seiten einbinden
 \usepackage{enumitem}					% custom itemiziation
 
@@ -224,25 +224,118 @@
 \chapter{Grundlagen}
 
 Bibtexkey\cite{Cleve2020}
-\section{Datenvorverarbeitung}
-\section{Entscheidungsbäume}
+	\section{Datenvorverarbeitung}
+	
+	\section{Knime Knoten für Entscheidungsbäume}
+		Die Knime Extension von Weka biete eine Vielzahl von neuen Knoten für Entscheidungsbäume, welche im Folgenden kurz angesprochen seien.
+	
+		\subsection{Standard Decision Tree von Knime}
+			Laut Beschreibung auf der Homepage von Knime muss das Zielattribut für diesen Knoten nominal sein. Die anderen zur Entscheidungsfindung verwendeten Attribute können entweder nominal oder numerisch sein. Der Algorithmus stellt zwei Qualitätsmaße für die Split-Berechnung zur Verfügung: den Gini-Index und das Gain-Ratio. Weiterhin gibt es eine Post Pruning-Methode, um die Baumgröße zu reduzieren und die Vorhersagegenauigkeit zu erhöhen. Die Pruning-Methode basiert auf dem Prinzip der minimalen Beschreibungslänge.\cite{DecTreeLearner}
+		
+		\subsection{SimpleCart (Weka 3.7)}
+			Ein bedeutendes Merkmal des CART-Algorithmus ist, dass nur Binärbäume erzeugt werden können. CARTs zeichnen sich dadurch aus, dass sie die Daten in Bezug auf die Klassifikation optimal trennen. Dies wird durch einen Attributschwellwert erreicht. Bei den errechneten Entscheidungsbäumen gilt: Je höher der Informationsgehalt eines Attributs in Bezug auf die Zielgröße, desto weiter oben im Baum findet sich dieses Attribut.\cite{Breiman1983}
+			
+			
+		\subsection{J48 (Weka 3.7)}
+			Diesem Knoten liegt der C4.5 Algorithmus von J. Ross Quinlan zu Grunde.
+			
+			Grundlegend verhalent sich dieser Algorithmus und der CART-Algorithmus ähnlich. Der Hauptunterschied besteht darin, dass bei C4.5 keine binäre Aufteilung erfolgen muss, sondern eine beliebige Anzahl Verzweigungen eingebaut werden können. Der Baum wird dadurch deutlich breiter und ist außerdem meist weniger tief als der korrespondierende CART-Baum. Ein weiterer Unterschied zeigt sich beim sogenannten Pruning, beim Stutzen des Baumes. CART erzeugt einige Subtrees und testet diese mit neuen, vorher noch nicht klassifizierten Daten. C4.5 beschneidet den Baum ohne Beachtung der gegebenen Datenbasis.\cite{Salzberg1994}
+			
+			
+		\subsection{NBTree (Weka 3.7)}
+			Es wurde bereits gezeigt, dass Naive-Bayes-Induktionsalgorithmen bei vielen Klassifizierungsaufgaben erstaunlich genau sind, selbst wenn die bedingte Unabhängigkeitsannahme, auf der sie basieren, verletzt ist. Die meisten Studien wurden jedoch mit kleinen Datenbanken durchgeführt. NBTree einen Hybridalgorithmus aus Entscheidungsbaum-Klassifikatoren und Naive-Bayes-Klassifikatoren. Die Knoten des Entscheidungsbaums enthalten inivariate Splits wie reguläre Entscheidungsbäume, aber die Blätter enthalten Naive-Bayes'sche Klassifikatoren. Der Ansatz behält die Interpretierbarkeit von Naive-Bayes und Entscheidungsbäume, während er zu Klassifikatoren führt, die häufig beide Konstituenten übertreffen, insbesondere in größeren Datenbanken.\cite{Kohavi1996}
+						
+		\subsection{REPTree (Weka 3.7)}
+			Dieser Knoten stellt einen schnellen Entscheidungsbaum-Lerner. Erstellt wird hierbei eine Entscheidungs-/Regressionsbaum unter Verwendung von Informationsgewinn/Varianz. Dieser wird anschließend unter Verwendung von fehlerreduziertem Pruning (mit Backfitting) bereinigt. Außerdem werden Werte für numerische Attribute nur einmal sortiert. Fehlende Werte werden behandelt, indem die entsprechenden Instanzen in Stücke aufgeteilt werden (d.h. wie beim C4.5 Algorithmus).
+		
+		\subsection{LMT (Weka 3.7)}
+			%\cite{Sumner2005}
+			Bauminduktionsverfahren und lineare Modelle sind beliebte Techniken für überwachte Lernaufgaben, sowohl für die Vorhersage von nominalen Klassen als auch von numerischen Werte. Für die Vorhersage numerischer Größen wurde an der Kombination dieser beiden beiden Verfahren zu \glqq{}Modellbäumen\grqq{} gearbeitet, d.h. zu Bäumen, die lineare Regressionsfunktionen an den Blättern enthalten. LMT ist ein Algorithmus, der diese Idee für Klassifikationsprobleme adaptiert, wobei die logistische Regression anstelle der linearen Regression verwendet wird. Es wird einen stufenweisen Anpassungsprozess verwendet, um die logistischen Regressionsmodelle zu konstruieren, welche die relevante Attribute in den Daten auf natürliche Weise auswählen kann.\cite{Landwehr2005}
+						
+		\subsection{DecisionStump (Weka 3.7)}
+			Ein Entscheidungsstumpf ist ein maschinelles Lernmodell, das aus einem einstufigen Entscheidungsbaum besteht. Das heißt, es ist ein Entscheidungsbaum mit einem internen Knoten (der Wurzel), der direkt mit den Endknoten (seinen Blättern) verbunden ist. Ein Entscheidungsstumpf macht eine Vorhersage, die auf dem Wert nur eines einzigen Eingabe-Features basiert. Manchmal werden sie auch als \glqq{}1-rules\grqq{} bezeichnet.	Bei kontinuierlichen Merkmalen wird in der Regel ein Schwellenwert gewählt, und der Stumpf enthält zwei Blätter - für Werte unterhalb und oberhalb des Schwellenwerts. In seltenen Fällen können jedoch auch mehrere Schwellenwerte gewählt werden, und der Stumpf enthält dann drei oder mehr Blätter.\cite{Ai92}
 
-\section{Clusteranalysen}
-\subsection{Was ist eine Clusteranalyse}
+			Entscheidungsstümpfe werden oft als Komponenten (als \glqq{}schwache Lerner\grqq{} oder \glqq{}Basislerner\grqq{} bezeichnet) in Ensemble-Techniken des maschinellen Lernens wie Bagging und Boosting verwendet. Ein Algorithmus zur Gesichtserkennung nach Viola-Jones verwendet z.B. AdaBoost mit Entscheidungsstümpfen als schwache Lerner.\cite{Freund99}			
+			
+		\subsection{J48Graft (Weka 3.7)}		
+			J48graft basiert auf J48, dem der C4.5 Algortihmus zugrunde liegt. J48graft nutzt den C4.5++ Algortihmus, welcher sich den Ansatz `all-tests-but-one-partition' (ATBOP) zu Nutzen macht um den C4.5 Algortihmus zu verbessern. 
+			
+			Beim Entscheidungsbaum-Grafting werden Knoten zu einem vorhandenen Entscheidungsbaum hinzugefügt, um den Vorhersagefehler zu reduzieren. Der C4.5++ Algortihmus behält die Fehlerreduktion des ursprünglichen Grafting-Algorithmus bei und reduziert gleichzeitig die Rechenzeit und die Komplexität des abgeleiteten Baums drastisch. Bias/Varianz-Analysen zeigen, dass das ursprüngliche Transplantationsverfahren in erster Linie durch Varianzreduktion funktionierte, während das neue Technik sowohl die Verzerrung als auch die Varianz reduziert.\cite{Webb1999} 	
+			
+		\subsection{BFTree (Weka 3.7)}
+			Entscheidungsbäume sind potenziell leistungsfähige Prädiktoren und stellen die Struktur eines Datensatzes dar. Standard-Entscheidungsbaum-Lerner, wie z.B. C4.5, expandieren Knoten, während bei Best-First-Entscheidungsbaumlernern der \glqq{}beste\grqq{} Knoten zuerst expandiert wird. Der \glqq{}beste\grqq{} Knoten ist der Knoten, dessen Aufteilung zu einer maximalen Reduktion der Unreinheit (z.B. Gini-Index) unter allen für die Aufteilung verfügbaren Knoten führt. Der resultierende Baum ist derselbe, wenn er vollständig gewachsen ist, nur die Reihenfolge, in der er aufgebaut wird, ist unterschiedlich. In der Praxis werden einige Zweige eines vollständig expandierten Baums die zugrundeliegende Information in der Domäne nicht widerspiegeln. Dieses Problem wird als Overfitting bezeichnet und wird hauptsächlich durch verrauschte Daten verursacht. Pruning ist notwendig, um eine Überanpassung der Trainingsdaten zu vermeiden, und verwirft die Teile, die nicht vorhersagend für zukünftige Daten sind. Die Best-First-Knotenerweiterung ermöglicht die Untersuchung neuer Pruning-Techniken, indem die Anzahl der durchgeführten Expansionen auf Basis von Kreuzvalidierung verglichen werden.\cite{Shi07}
+			%\cite{Friedman2000}
+			
+			
+		\subsection{RandomTree (Weka 3.7)}			
+			Dieser Knime-Knoten ist zum Konstruieren eines Baums geeignet, der an jedem seiner Knoten K zufällig ausgewählte Attribute berücksichtigt. Der Algorithmus führt kein Pruning durch. Verfügt jedoch über eine Option, die eine Schätzung der Klassenwahrscheinlichkeiten auf der Basis eines Hold-out-Sets (Backfitting) ermöglicht.
+			
+		\subsection{RandomForest (Weka 3.7)}			
+			Random Forests sind eine Kombination von Baumprädiktoren, wobei jeder Baum von den Werten eines Zufallsvektors abhängt, der unabhängig und mit der gleichen Verteilung für alle Bäume im `Wald' genutzt wird. Der Generalisierungsfehler für Wälder konvergiert gegen einen Grenzwert, wenn die Anzahl der Bäume im Wald groß wird. Der Generalisierungsfehler eines Waldes von Baumklassifikatoren hängt von der Stärke der einzelnen Bäume im Wald und der Korrelation zwischen ihnen ab. Die Verwendung einer zufälligen Auswahl von Merkmalen zur Aufteilung jedes Knotens führt zu Fehlerraten, die mit denen von Adaboost (Freund und Schapire) vergleichbar, aber robuster gegenüber Rauschen sind. Interne Schätzungen überwachen Fehler, Stärke und Korrelation, und diese werden verwendet, um die Reaktion auf die Erhöhung der Anzahl der bei der Aufteilung verwendeten Features zu zeigen. Interne Schätzungen werden auch verwendet, um die Wichtigkeit von Variablen zu messen. Diese Ideen sind auch auf Regression anwendbar. \cite{Breiman2001}		
+			
+		\subsection{FT (Weka 3.7)}
+			Funktionale Bäume erlauben eine enge Integration verschiedener Repräsentationssprachen für verallgemeinernde Beispiele. Es ist hervorzuheben, dass es Standardalgorithmen für topologische Transformationen auf Entscheidungsbäumen gibt, die hier nicht weiter besprochen, jedoch von Gama behandelt werden.\cite{Gama2004}
+			
+			%\cite{Landwehr2005}
 
-\subsection{kMeans Cluster}
-\subsection{Dichtebasiertes Cluster}
-\subsection{Hierachisches Cluster}
+	\section{Clusteranalysen}
+		\subsection{Was ist eine Clusteranalyse}
+
+		\subsection{kMeans Cluster}
+		\subsection{Dichtebasiertes Cluster}
+		\subsection{Hierachisches Cluster}
 
 \chapter{KNIME Implementierung}
 
-\section{Entscheidungsbaum}
+	\section{Entscheidungsbaum}
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.3]{pictures/trees-workflow-gesamt.png}
+				\caption{Aufbau des Workflows}									
+				\label{figure:trees:workflow}
+			\end{center}
+		\end{figure}
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.3]{pictures/trees-workflow-gesamt-zoomed.png}
+				\caption{Ausschnitt des Workflows (Variableneingabe und Vorhersage)}									
+				\label{figure:trees:workflow:zommed}
+			\end{center}
+		\end{figure}
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.35]{pictures/trees-workflow-partitioning.png}
+				\caption{Inhalt des Metanodes `getPredictionAccuracy'}									
+				\label{figure:trees:workflow:partitioning}
+			\end{center}
+		\end{figure}
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.55]{pictures/trees-workflow-getAccuracys.png}
+				\caption{Inhalt des Metanodes `getAccuracys'}									
+				\label{figure:trees:workflow:getaccuracys}
+			\end{center}
+		\end{figure}
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.35]{pictures/trees-workflow-std-example.png}
+				\caption{Inhalt des Metanodes `getAccuracyStdDecTree'}									
+				\label{figure:trees:workflow:example:std}
+			\end{center}
+		\end{figure}
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.35]{pictures/trees-workflow-weka-example.png}
+				\caption{Inhalt des Metanodes `getAccuracyWekaSimpleCart'}									
+				\label{figure:trees:workflow:example:weka}
+			\end{center}
+		\end{figure}
 
-\section{Clusteranalyse}
-\subsection{Relevante Knoten}
-\subsection{kMeans Cluster Workflow}
-\subsection{Dichtebasierters Cluster Workflow}
-\subsection{Hierarchisches Cluster Workflow}
+	\section{Clusteranalyse}
+		\subsection{Relevante Knoten}
+		\subsection{kMeans Cluster Workflow}
+		\subsection{Dichtebasierters Cluster Workflow}
+		\subsection{Hierarchisches Cluster Workflow}
 	%-----------------------------------------------------------------------------
 	% Literaturverzeichnis einf�gen, 
 	% Nutzung der BibTeX-Technologie --> literatur.bib 
