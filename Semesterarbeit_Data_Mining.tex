@@ -242,7 +242,7 @@ Das Data Mining ist ein immer weiter polarisierendes Fachgebiet der Informatik, 
 		\caption{Datenvorverarbeitung in KNIME}
 	\end{figure}
 	
-	Nach der Vorverarbeitung, wo sowohl Spalten umbenannt, Daten binarisiert, Durchschnittsergebnisse berechnet und weitere Bereinigungen durchgeführt wurden, ist folgende Tabelle entsanden
+	Nach der Vorverarbeitung, in welcher sowohl Spalten umbenannt, Daten binarisiert, Durchschnittsergebnisse berechnet und weitere Bereinigungen durchgeführt wurden, ist folgende Tabelle entsanden.
 	
 	\begin{figure}[!h]
 		\includegraphics[scale=0.47]{pictures/processed.png}
@@ -303,12 +303,8 @@ Das Data Mining ist ein immer weiter polarisierendes Fachgebiet der Informatik, 
 			%\cite{Landwehr2005}
 
 	\section{Clusteranalysen}
-		\subsection{Was ist eine Clusteranalyse}
-
-		\subsection{kMeans Cluster}
-		\subsection{Dichtebasiertes Cluster}
-		\subsection{Hierachisches Cluster}
-
+		\subsection{Clusteranalyse in KNIME}
+		In KNIME wird von der Auslieferungsversion diverse Knoten zur Clusteranalyse angeboten. Im Folgenden werden drei Clusterkonzepte vorgestellt und im nächsten Kapitel die Implementierung dargestellt.
 \chapter{KNIME Implementierung}
 
 	\section{Entscheidungsbäume}
@@ -352,17 +348,34 @@ Das Data Mining ist ein immer weiter polarisierendes Fachgebiet der Informatik, 
 		
 		\begin{figure}[h]
 			\begin{center}
-				\includegraphics[scale=0.55]{pictures/trees-workflow-getAccuracys.png}
+				\includegraphics[scale=0.45]{pictures/trees-workflow-getAccuracys.png}
 				\caption{Inhalt des Metanodes `getAccuracys'}									
 				\label{figure:trees:workflow:getaccuracys}
 			\end{center}
 		\end{figure}
 
 	\section{Clusteranalyse}
-		\subsection{Relevante Knoten}
 		\subsection{kMeans Cluster Workflow}
+		
+		\begin{figure}[!h]
+		\includegraphics[scale=1]{pictures/kmeans.png}
+		\caption{K Means Algorithmus Implementierung in KNIME}
+		\end{figure}
+		
+		\begin{figure}[!h]
+		\includegraphics[scale=0.6]{pictures/cluster.png}
+		\caption{K Means Algorithmus Implementierung in KNIME}
+		\end{figure}
 		\subsection{Dichtebasierters Cluster Workflow}
+		\begin{figure}[!h]
+		\includegraphics[scale=1]{pictures/dichte.png}
+		\caption{K Means Algorithmus Implementierung in KNIME}
+		\end{figure}
 		\subsection{Hierarchisches Cluster Workflow}
+		\begin{figure}[!h]
+		\includegraphics[scale=1]{pictures/hierach.png}
+		\caption{K Means Algorithmus Implementierung in KNIME}
+		\end{figure}
 	%-----------------------------------------------------------------------------
 	% Literaturverzeichnis einf�gen, 
 	% Nutzung der BibTeX-Technologie --> literatur.bib 
