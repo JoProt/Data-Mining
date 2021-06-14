@@ -226,8 +226,8 @@
 Bibtexkey\cite{Cleve2020}
 	\section{Datenvorverarbeitung}
 	
-	\section{Knime Knoten für Entscheidungsbäume}
-		Die Knime Extension von Weka biete eine Vielzahl von neuen Knoten für Entscheidungsbäume, welche im Folgenden kurz angesprochen seien.
+	\section{Knime Knoten für Entscheidungsbäume}\label{tree:dec:nodes}
+		Knime selbst bietet einen `Decision Tree Learner' Knoten und die Extension von Weka biete eine Vielzahl von neuen Knoten für Entscheidungsbäume, welche im Folgenden kurz angesprochen seien.
 	
 		\subsection{Decision Tree Learner (Knime)}
 			Laut Beschreibung auf der Homepage von Knime muss das Zielattribut für diesen Knoten nominal sein. Die anderen zur Entscheidungsfindung verwendeten Attribute können entweder nominal oder numerisch sein. Der Algorithmus stellt zwei Qualitätsmaße für die Split-Berechnung zur Verfügung: den Gini-Index und das Gain-Ratio. Weiterhin gibt es eine Post Pruning-Methode, um die Baumgröße zu reduzieren und die Vorhersagegenauigkeit zu erhöhen. Die Pruning-Methode basiert auf dem Prinzip der minimalen Beschreibungslänge.\cite{DecTreeLearner}
@@ -287,7 +287,9 @@ Bibtexkey\cite{Cleve2020}
 
 \chapter{KNIME Implementierung}
 
-	\section{Entscheidungsbaum}
+	\section{Entscheidungsbäume}
+		In Abbildung \ref{figure:trees:workflow} ist zunächst der gesamte Workflow mit Metaknoten dargestellt. Unten befindet sich die Datenvorverarbeitung, oben die in Abbildung \ref{figure:trees:workflow:zommed} dargestellte Eingabe der Variablen für Aufteilung der Trainingsmenge und die vorherzusagende Spalte.
+				
 		\begin{figure}[h]
 			\begin{center}
 				\includegraphics[scale=0.3]{pictures/trees-workflow-gesamt.png}
@@ -295,6 +297,7 @@ Bibtexkey\cite{Cleve2020}
 				\label{figure:trees:workflow}
 			\end{center}
 		\end{figure}
+		
 		\begin{figure}[h]
 			\begin{center}
 				\includegraphics[scale=0.3]{pictures/trees-workflow-gesamt-zoomed.png}
@@ -302,6 +305,7 @@ Bibtexkey\cite{Cleve2020}
 				\label{figure:trees:workflow:zommed}
 			\end{center}
 		\end{figure}
+		
 		\begin{figure}[h]
 			\begin{center}
 				\includegraphics[scale=0.35]{pictures/trees-workflow-partitioning.png}
@@ -309,25 +313,24 @@ Bibtexkey\cite{Cleve2020}
 				\label{figure:trees:workflow:partitioning}
 			\end{center}
 		\end{figure}
-		\begin{figure}[h]
-			\begin{center}
-				\includegraphics[scale=0.55]{pictures/trees-workflow-getAccuracys.png}
-				\caption{Inhalt des Metanodes `getAccuracys'}									
-				\label{figure:trees:workflow:getaccuracys}
-			\end{center}
-		\end{figure}
-		\begin{figure}[h]
-			\begin{center}
-				\includegraphics[scale=0.35]{pictures/trees-workflow-std-example.png}
-				\caption{Inhalt des Metanodes `getAccuracyStdDecTree'}									
-				\label{figure:trees:workflow:example:std}
-			\end{center}
-		\end{figure}
+		
+		Hierbei wird dem Metaknoten `getPredictionAccuracy' dreimal der verschieden aufbereitete Datensatz übergeben. Von ihm ausgegeben werden, die Werte des `Accuracy' Feldes für jeden in Kapitel \ref{tree:dec:nodes} genannten Entscheidungsbaum-Knoten. Die Trainingsmengen sind hierbei immer gleich (vgl. Abblidung \ref{figure:trees:workflow:partitioning}). Zusammengefügt und visualisiert werden die Ergebnisse in einem Barchart.
+		
+		Der in Abbildung \ref{figure:trees:workflow:partitioning}	 gezeigte Metaknoten `getAccuracys' ist in Abbildung \ref{figure:trees:workflow:getaccuracys} genauer dargestellt. Er beinhaltet für jeden in Kapitel \ref{tree:dec:nodes} genannten Entscheidungsbaum einen eigenen Metaknoten dessen Inhalt analog zu dem in Abbildung \ref{figure:trees:workflow:example:weka} ist. Übergeben werden hierbei die Trainings und die Testmenge, sowie der Name der vorherzusagende Spalte. Der Knoten `Scorer' erzeugt unteranderem den zu vergleichenden Wert `Accuracy', welcher durch einen Spalten- und Reihenfilter extrahiert und umbenannt wird.
+		
 		\begin{figure}[h]
 			\begin{center}
 				\includegraphics[scale=0.35]{pictures/trees-workflow-weka-example.png}
 				\caption{Inhalt des Metanodes `getAccuracyWekaSimpleCart'}									
 				\label{figure:trees:workflow:example:weka}
+			\end{center}
+		\end{figure}
+		
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.55]{pictures/trees-workflow-getAccuracys.png}
+				\caption{Inhalt des Metanodes `getAccuracys'}									
+				\label{figure:trees:workflow:getaccuracys}
 			\end{center}
 		\end{figure}
 
