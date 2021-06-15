@@ -412,16 +412,24 @@ Nachdem alle Knoten, welche in diesem Projekt verwendet werden beschrieben worde
 				\label{figure:trees:workflow:getaccuracys}
 			\end{center}
 		\end{figure}
+		
 
 	\section{Clusteranalyse}
+	Im Folgendem werden die vorherbeschriebenen Knoten der Clusteranalyse in KNIME implementiert.
+	
+	\newpage
+	
 		\subsection{kMeans Cluster Workflow}
+		In Abbildung 2.6 wird ein Beispiel Workflow zur Clusteranalyse präsentiert. 
 		
 		\begin{figure}[!h]
 			\begin{center}
 				\includegraphics[scale=1]{pictures/kmeans.png}
-				\caption{K Means Algorithmus Implementierung in KNIME}
+				\caption{kMeans Algorithmus Implementierung in KNIME}
 			\end{center}
 		\end{figure}
+		
+		Die Ergebniscluster werden in Abbildung 2.7 dargestellt.
 		
 		\begin{figure}[!h]
 			\begin{center}
@@ -430,7 +438,19 @@ Nachdem alle Knoten, welche in diesem Projekt verwendet werden beschrieben worde
 			\end{center}
 		\end{figure}
 		
-		\subsection{Dichtebasierters Cluster Workflow}
+		Durch den Silhouetten Koeffizienten lässt sich herausfinden ob die Ergebniscluster eine gute Lösung sind. Der Koeffizient hat einen Wertebereich von -1 bis 1. Je höher der Wert, desto besser ist die Clusterung.
+		\newpage
+		\begin{figure}[!h]
+			\begin{center}
+				\includegraphics[scale=0.5]{pictures/sil_mean.png}
+				\caption{Silhouetten Koeffizienten der Zufälligen Cluster initialisierung}
+			\end{center}
+		\end{figure}
+		
+		Der Gesamt Koeffizient liegt bei 0,3. Bei einer weiteren Clusterinitialisierung der ersten k - Reihen, wird ein Wert von 0,303 berechnet, welcher leicht besser ist. Der beste Wert mit der besten Einstellung muss durch variieren der Konfigurationsparameter der Clusteroptionen bestimmt werden. 
+		\subsection{Dichtebasierter Cluster Workflow}
+		In Abbildung 2.9 ist ein beispielhafter Workflow zum dichtebasierten Clustern dargestellt.
+		
 		\begin{figure}[!h]
 			\begin{center}
 				\includegraphics[scale=1]{pictures/dichte.png}
@@ -438,11 +458,32 @@ Nachdem alle Knoten, welche in diesem Projekt verwendet werden beschrieben worde
 			\end{center}
 		\end{figure}
 		
-		\subsection{Hierarchisches Cluster Workflow}
+		In Abbildung 2.10 ist das Ergebniss dargestellt. 
+		
 		\begin{figure}[!h]
 			\begin{center}
-				\includegraphics[scale=1]{pictures/hierach.png}
-				\caption{K Means Algorithmus Implementierung in KNIME}
+				\includegraphics[scale=0.5]{pictures/plotly_dense.png}
+				\caption{Darstellung von Rausch und Kernpunkten im dichtebasierten Clustering}
+			\end{center}
+		\end{figure}
+		
+		Zu erkennen ist, dass die Testmenge fast kein Rauschen erzeugt. 
+		
+		\begin{figure}[!h]
+			\begin{center}
+				\includegraphics[scale=0.7]{pictures/sil_dens.png}
+				\caption{Darstellung von Rausch und Kernpunkten im dichtebasierten Clustering}
+			\end{center}
+		\end{figure}
+		
+		Die Cluster wurden von dem Knoten in Kernpunkte und Rauschpunkte unterteilt (siehe Abbildung 2.11) und der Silhouetten Koeffizient hat einen Wert von ca. 0,7 berechnet, welches für eine gute Clusterung spricht. 
+		\newpage
+		\subsection{Hierarchisches Cluster Workflow}
+		Im Abbildung 2.12 sind die Knoten für das Hierarchische Clustern dargestellt.
+		\begin{figure}[!h]
+			\begin{center}
+				\includegraphics[scale=0.8]{pictures/hierach.png}
+				\caption{Knoten für das Hierarchische Clustern mit unterschiedlichen Distanzmaßen}
 			\end{center}
 		\end{figure}
 	%-----------------------------------------------------------------------------
