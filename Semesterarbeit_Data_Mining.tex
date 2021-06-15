@@ -223,33 +223,43 @@
 	
 \chapter{Grundlagen}
 
-Das Data Mining ist ein immer weiter polarisierendes Fachgebiet der Informatik, welches zunehmend Anwendung in Problemstellung der Forschung und der Industrie findet. Das klassische Data Mining befasst sich mit der automatischen Verarbeitung von nicht trivialen Daten und beschäftigt sich mit den Themen der Datenvorverarbeitung sowie mit Anwendungsfällen von Analysealgorithmen \cite{Cleve2020}. Im Rahmen des Studienmoduls \glqq{}Wissenextraktion / Data Mining\grqq{} wurde ein Projekt bearbeitet, welches anhand eines gegebenen Datensatz der Data Science Plattform \href{www.kaggle.com}{Kaggle.com} Datensatz, die kennengelernten Vorverarbeitungsmechanismen sowie zwei Ausgewählte Analyseverfahren anwendet. 
+Das Data Mining ist ein immer weiter polarisierendes Fachgebiet der Informatik, welches zunehmend Anwendung in Problemstellung der Forschung und der Industrie findet. Das klassische Data Mining befasst sich mit der automatischen Verarbeitung von nicht trivialen Daten und beschäftigt sich mit den Themen der Datenvorverarbeitung sowie mit Anwendungsfällen von Analysealgorithmen \cite{Cleve2020}. Im Rahmen des Studienmoduls \glqq{}Wissenextraktion / Data Mining\grqq{} wurde ein Projekt bearbeitet, welches anhand eines gegebenen Datensatz der Data Science Plattform \href{www.kaggle.com}{Kaggle.com}, die kennengelernten Vorverarbeitungsmechanismen sowie zwei Ausgewählte Analyseverfahren aus dem Modul anwendet. 
 
 	\section{Datenvorverarbeitung}
 	Die Datenvorverarbeitung ist eines der ersten Schritte, welche in einem Data Mining Projekt angewendet werden\footnote{Nach der Datenbeschaffung von der Datenquelle}. Das Ziel ist es die Rohdaten so aufzubereiten, dass Analysealgorithmen einfach angewendet werden können und bestmögliche Ergebnisse liefern.
-	Damit die Daten entsprechen aufbereitet werden können, müssen zunächst die Daten verstanden werden. In der nächsten Sektion wird auf die Rohdaten eingegangen, welche für das Projekt zur Verfügung standen.
+	Damit die Daten entsprechen aufbereitet werden können, müssen zunächst die Daten verstanden werden (Data Understanding). In der nächsten Sektion wird auf die Rohdaten eingegangen, welche für das Projekt zur Verfügung standen.
 	\newpage
 	\subsection{Daten}
-	Der Datensatz besteht aus acht Spalten und 1000 Zeilen.  Die Daten bestehen aus Testergebnissen in Mathe, Lesen und Schreiben anhand von verschiedenen Ausgangskriterien. Unterteilt wird in Geschlecht, ethnische Herkunft, Bildung der Eltern, welchen Typ Mittagessen eingenommen wurde \& und ob sich auf den Test vorbereitet wurde. 
+	Der Datensatz besteht aus acht Spalten und 1000 Zeilen.  Die Tabelle liefert Testergebnissen in Mathe, Lesen und Schreiben anhand von verschiedenen Ausgangskriterien. Unterteilt wird in Geschlecht, ethnische Herkunft, Bildung der Eltern, welcher Typ Mittagessen eingenommen wurde und ob sich auf den Test vorbereitet wurde. 
 	\begin{figure}[!h]
 		\includegraphics[scale=0.65]{pictures/roh.png}
 		\caption{Auszug aus dem Rohdatensatz}
 	\end{figure}
 	\subsection{Vorverarbeitung}
-	Im nächsten Schritt werden die Daten in eine, für die Algortihmen einfacherer zu verarbeitende, Form gebracht. Umgestetzt wurde das mit dem folgendem Workflow.
+	Im nächsten Schritt werden die Daten in eine, für die Algortihmen einfacher zu verarbeitende Form gebracht. Umgestetzt wurde das mit dem folgendem Workflow aus Abbildung 1.2.
+	
 	\begin{figure}[!h]
 		\includegraphics[scale=0.50]{pictures/preprocessing.png}
 		\caption{Datenvorverarbeitung in KNIME}
 	\end{figure}
 	
-	Nach der Vorverarbeitung, in welcher sowohl Spalten umbenannt, Daten binarisiert, Durchschnittsergebnisse berechnet und weitere Bereinigungen durchgeführt wurden, ist folgende Tabelle entsanden.
+	Folgende Verarbeitungsschritte wurden angewendet:
+	\begin{itemize}
+	\item Umformulieren der Tabellenheader
+	\item Aufteilen der Group-Spalte und ausschneiden des Wortes Group
+	\item Durchschnittsbildung über die drei Testergebnisse
+	\item Binarisieren der Spalten mit nominalen Datentypen
+	\end{itemize}
+	\newpage
+	Nach der Vorverarbeitung ist folgende Tabelle aus Abbildung 1.3 entsanden.
 	
 	\begin{figure}[!h]
 		\includegraphics[scale=0.47]{pictures/processed.png}
 		\caption{Datensatz nach der Vorverarbeitung }
 	\end{figure}
 	
-	Das Ergebnis der Vorverarbeitung ist die Eingangstabelle für die weiteren Analyse Algorithmen. Im Folgendem wird auf zwei Analysekonzepte aus der Vorlesung eingegangen. Das Konzept des Entscheidungsbaum und das der Cluster.
+	Das Ergebnis der Vorverarbeitung ist die Eingangstabelle für die weiteren Analyse Algorithmen. Im Folgendem wird auf zwei Analysekonzepte aus der Vorlesung eingegangen: Das Konzept des Entscheidungsbaum und das der Cluster.
+	
 	\section{Knime Knoten für Entscheidungsbäume}\label{tree:dec:nodes}
 		Knime selbst bietet einen `Decision Tree Learner' Knoten und die Extension von Weka biete eine Vielzahl von neuen Knoten für Entscheidungsbäume, welche im Folgenden kurz angesprochen seien.
 	
@@ -303,8 +313,54 @@ Das Data Mining ist ein immer weiter polarisierendes Fachgebiet der Informatik, 
 			%\cite{Landwehr2005}
 
 	\section{Clusteranalysen}
-		\subsection{Clusteranalyse in KNIME}
 		In KNIME wird von der Auslieferungsversion diverse Knoten zur Clusteranalyse angeboten. Im Folgenden werden drei Clusterkonzepte vorgestellt und im nächsten Kapitel die Implementierung dargestellt.
+		\subsection{K Means - Algorithmus}
+		Der K Means Knoten in KNIME berechnet für eine angegebene Anzahl an Cluster (keine dynamische Clusteranzahl) die Clusterzentren. Die Cluster werden iterativ berechnet und der Algorithmus stoppt, wenn entweder ein Limit an maximalen Iterationen erreicht wird oder die Cluster sich nicht mehr verändern. In dem gegebenen Datensatz wird der Algorithmus durch sich selbst beendet und nicht durch eine maximale Anzahl an Iterationen. Der Output des Knoten ist ist die Tabelle mit einer angehängten Spalte, wo die Tabellenreihe einem Cluster zugeordnet wurde. Der Clusteralgorithmus verwendet zum Berechnen der Clusterzugehörigkeit die euklidische Distanz.
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.7]{pictures/kmeans-knoten.png}
+				\caption{Knotenoptionen K-Means -Quelle: knime.com}									
+
+			\end{center}
+		\end{figure}
+		
+		\subsection{Dichtebasiertes Clustern}
+		Für das Dichtebasierte Clustern in KNIME kann auf den Standard-Knoten \textbf{DBSCAN} zurückgegriffen werden.
+		DBSCAN definiert drei Arten von Punkten
+		\begin{itemize}
+		\item Core Punkte (haben eine minimale Anzahl an Nachbarn in einer bestimmten Entfernung)
+		\item Border Punkte (sind innerhalb der Distanz der Core Points besitzen aber weniger Nachbarn)
+		\item Rausch Punkte (weder Core-, noch Border Punkte)
+		\end{itemize}
+		\newpage
+		Cluster werden gebildet, indem Core Punkte miteinander verbunden werden. Alle Punkte die innerhalb der Kernpunkte-Distanz liegen werden als ein Cluster gesehen. Alle Punkte ausserhalb werden als Rausch-Punkte gesehen.
+		
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.7]{pictures/db-opt.png}
+				\caption{Knotenoptionen DBSCAN -Quelle: knime.com}									
+			\end{center}
+		\end{figure}
+		
+		\subsection{Hierarchisches Clustern}
+		Das Hierarchische Clustern ist ein agglomerativer (bottom-up) Algorithmus-Knoten von KNIME. Dieser Knoten stellt verschiedene Distanzmaße zur Verfügung um die Cluster zuberechnen. Folgende beispiel Distanzmaße werden bereitgestellt.
+		
+		\begin{itemize}
+		\item Euklidische Distanz
+		\item Manhatten Distanz
+		\item Mirkowski Distanz
+		\item ... und weitere
+		\end{itemize}
+		
+		Folgende Konfigurationen sind in diesem Knoten auszuwählen.
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.7]{pictures/hier-opt.png}
+				\caption{Knotenoptionen Hierachical Clusterer -Quelle: knime.com}									
+			\end{center}
+		\end{figure}
+
+Nachdem alle Knoten, welche in diesem Projekt verwendet werden beschrieben worden sind, wird im Folgendem auf die Implementierung dieser Knoten in KNIME eingegangen.
 \chapter{KNIME Implementierung}
 
 	\section{Entscheidungsbäume}
