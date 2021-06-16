@@ -223,7 +223,7 @@
 	
 \chapter{Grundlagen}
 
-Das Data Mining ist ein immer weiter polarisierendes Fachgebiet der Informatik, welches zunehmend Anwendung in Problemstellung der Forschung und der Industrie findet. Das klassische Data Mining befasst sich mit der automatischen Verarbeitung von nicht trivialen Daten und beschäftigt sich mit den Themen der Datenvorverarbeitung sowie mit Anwendungsfällen von Analysealgorithmen \cite{Cleve2020}. Im Rahmen des Studienmoduls \glqq{}Wissenextraktion / Data Mining\grqq{} wurde ein Projekt bearbeitet, welches anhand eines gegebenen Datensatz der Data Science Plattform \href{www.kaggle.com}{Kaggle.com}, die kennengelernten Vorverarbeitungsmechanismen sowie zwei ausgewählte Analyseverfahren aus dem Modul anwendet. 
+Das Data Mining ist ein polarisierendes Fachgebiet der Informatik, welches zunehmend Anwendung in Problemstellung der Forschung und der Industrie findet. Das klassische Data Mining befasst sich mit der automatischen Verarbeitung von nicht trivialen Daten und beschäftigt sich mit den Themen der Datenvorverarbeitung sowie mit Anwendungsfällen von Analysealgorithmen \cite{Cleve2020}. Im Rahmen des Studienmoduls \glqq{}Wissenextraktion / Data Mining\grqq{} wurde ein Projekt bearbeitet, welches anhand eines gegebenen Datensatz der Data Science Plattform \href{www.kaggle.com}{Kaggle.com}, die kennengelernten Vorverarbeitungsmechanismen sowie zwei ausgewählte Analyseverfahren aus dem Modul anwendet. 
 
 	\section{Datenvorverarbeitung}
 	Die Datenvorverarbeitung ist eines der ersten Schritte, welche in einem Data Mining Projekt angewendet werden\footnote{Nach der Datenbeschaffung von der Datenquelle}. Das Ziel ist es die Rohdaten so aufzubereiten, dass Analysealgorithmen einfach angewendet werden können und bestmögliche Ergebnisse liefern.
@@ -251,7 +251,7 @@ Das Data Mining ist ein immer weiter polarisierendes Fachgebiet der Informatik, 
 	\item Binarisieren der Spalten mit nominalen Datentypen
 	\end{itemize}
 	\newpage
-	Nach der Vorverarbeitung ist folgende Tabelle aus Abbildung 1.3 entsanden.
+	Nach der Vorverarbeitung ist folgende Tabelle aus Abbildung 1.3 entstanden.
 	
 	\begin{figure}[!h]
 		\includegraphics[scale=0.47]{pictures/processed.png}
@@ -388,7 +388,7 @@ Nachdem alle Knoten, welche in diesem Projekt verwendet werden beschrieben worde
 		\begin{figure}[h]
 			\begin{center}
 				\includegraphics[scale=0.35]{pictures/trees-workflow-partitioning.png}
-				\caption{Inhalt des Metanodes `getPredictionAccuracy'}									
+				\caption{Inhalt des Metaknoten `getPredictionAccuracy'}									
 				\label{figure:trees:workflow:partitioning}
 			\end{center}
 		\end{figure}
@@ -400,7 +400,7 @@ Nachdem alle Knoten, welche in diesem Projekt verwendet werden beschrieben worde
 		\begin{figure}[h]
 			\begin{center}
 				\includegraphics[scale=0.35]{pictures/trees-workflow-weka-example.png}
-				\caption{Inhalt des Metanodes `getAccuracyWekaSimpleCart'}									
+				\caption{Inhalt des Metaknoten `getAccuracyWekaSimpleCart'}									
 				\label{figure:trees:workflow:example:weka}
 			\end{center}
 		\end{figure}
@@ -408,7 +408,7 @@ Nachdem alle Knoten, welche in diesem Projekt verwendet werden beschrieben worde
 		\begin{figure}[h]
 			\begin{center}
 				\includegraphics[scale=0.45]{pictures/trees-workflow-getAccuracys.png}
-				\caption{Inhalt des Metanodes `getAccuracys'}									
+				\caption{Inhalt des Metaknoten `getAccuracys'}									
 				\label{figure:trees:workflow:getaccuracys}
 			\end{center}
 		\end{figure}
@@ -476,16 +476,17 @@ Nachdem alle Knoten, welche in diesem Projekt verwendet werden beschrieben worde
 		\end{figure}
 		
 		Die Cluster wurden von dem Knoten in Kernpunkte und Rauschpunkte unterteilt (siehe Abbildung 2.11) und der Silhouetten Koeffizient hat einen Wert von ca. 0,7 berechnet, welches für eine gute Clusterung spricht. 
+		
 		\newpage
 		\subsection{Hierarchisches Cluster Workflow}
 		Im Abbildung 2.12 sind die Knoten für das hierarchische Clustern dargestellt.
+		Das Ergebnis einer hierarchischen Clusteranalyse ist ein Dendrogramm (Siehe Abbildung 2.13). Das Dendrogramm stellt die die Testmenge in einer Baumstruktur dar, wobei die Blätter die Zusammengehörigkeit der einzelnen Testergebnisse widerspiegeln.
 		\begin{figure}[!h]
 			\begin{center}
 				\includegraphics[scale=0.8]{pictures/hierach.png}
 				\caption{Knoten für das hierarchische Clustern mit unterschiedlichen Distanzmaßen}
 			\end{center}
 		\end{figure}
-		Das Ergebnis einer hierarchischen Clusteranalyse ist ein Dendrogramm (Siehe Abbildung 2.13). Das Dendrogramm stellt die die Testmenge in einer Baumstruktur dar, wobei die Blätter die Zusammengehörigkeit der einzelnen Testergebnisse widerspiegeln.
 		\begin{figure}[!h]
 			\begin{center}
 				\includegraphics[scale=0.4]{pictures/dendro.png}
