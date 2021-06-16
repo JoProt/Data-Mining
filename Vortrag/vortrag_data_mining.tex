@@ -65,6 +65,7 @@
 			\begin{itemize}
 				\item Weka-Knoten
 				\item Erzeugung von Binärbäumen
+				\item Pruning möglich
 				\item Je höher der Informationsgehalt eines Attributs in Bezug auf die Zielgröße, desto weiter oben im Baum findet
 sich dieses Attribut. 
 			\end{itemize}
@@ -77,9 +78,31 @@ sich dieses Attribut.
 		\end{frame}
 
 		\begin{frame}{J48}		
+			\begin{itemize}
+				\item Weka-Knoten
+				\item C4.5 Algorithmus von J. Ross Quinlan
+				\item Ähnlich zu CART, jedoch kein Binärbaum
+				\item Deutlich breiter und weniger tief als CART
+				\item Pruning möglich
+			\end{itemize}
 		\end{frame}
 
-		\begin{frame}{NBTree}		
+		\begin{frame}{NBTree}
+			\begin{itemize}
+				\item Weka-Knoten
+				\item Hybridalgorithmus aus Entscheidungsbaum- und Naive-Bayes-Klassifikatoren
+				\item \glqq{}klassische\grqq{} Knoten
+				\item Blätter enthalten Naive-Bayes’sche Klassifikatoren
+			\end{itemize}	
+			
+			\begin{center}
+				\begin{figure}[h]
+					\includegraphics[scale=1]{../pictures/NBTree-classifying-MAC-Felinae.jpg}
+					\caption{NB Tree Beispiel}		
+				\end{figure}		
+			\end{center}
+			
+			
 		\end{frame}
 
 		\begin{frame}{REPTree}		
