@@ -1,0 +1,81 @@
+% lmg 2020
+% ---
+% Gestaltung der Folieninhalte
+
+\mode
+<presentation>
+
+% Layout der Titelseite
+\defbeamertemplate*{title page}{Wismar}[1][]
+{%
+	%~ \meta
+	\vspace{1cm}
+	\begin{beamercolorbox}[wd=9cm,dp=2ex,leftskip=10pt,ignorebg]{title page header}
+		\usebeamerfont{title}\textbf{\inserttitle}
+	\end{beamercolorbox}
+	\vspace{1ex}
+	\begin{beamercolorbox}[wd=8cm,dp=3ex,leftskip=10pt,ignorebg]{subtitle page header}
+		\usebeamerfont{subtitle}\insertsubtitle
+	\end{beamercolorbox}
+	\vfill
+	\begin{beamercolorbox}[wd=8cm,dp=3ex,leftskip=10pt,ignorebg]{date}
+		\usebeamerfont{date}\insertdate
+	\end{beamercolorbox}
+	\vspace{15mm}
+	\begin{textblock*}{6cm}(1.3cm,0.7\paperheight)
+		\begin{beamercolorbox}{institute}
+			\usebeamerfont{institute}\textbf{\ifx\insertinstitute\empty\fakname\else\fakname\newline\insertinstitute\fi}
+		\end{beamercolorbox}
+		\vspace{2pt}
+		\begin{beamercolorbox}{author}
+			\usebeamerfont{author}\insertauthor\par
+			\usebeamerfont{hswurl}\href{https://www.hs-wismar.de}{www.hs-wismar.de}
+		\end{beamercolorbox}
+\end{textblock*}
+}
+
+%~ \setbeamertemplate{part page}
+%~ {%
+	%~ \vfill
+	%~ \begin{beamercolorbox}{part name}
+		%~ \centering\usebeamerfont{part title}\insertsection
+	%~ \end{beamercolorbox}
+	%~ \vfill
+%~ }
+
+\setbeamertemplate{section page}
+{%
+	\vfill
+	\begin{beamercolorbox}{section name}
+		\centering\usebeamerfont{section title}\insertsection
+	\end{beamercolorbox}
+	\vfill
+}
+
+%~ \setbeamertemplate{subsection page}
+%~ {%
+	%~ \vfill
+	%~ \begin{beamercolorbox}{subsection name}
+		%~ \centering\usebeamerfont{subsection title}\insertsection
+	%~ \end{beamercolorbox}
+	%~ \vfill
+%~ }
+
+\setbeamertemplate{subsection in toc}
+{%
+	\leavevmode\leftskip=5ex%
+	\llap{%
+	\usebeamerfont*{section number projected}%
+	\usebeamercolor[bg]{section number projected}%
+	\vrule width2.25ex height1.85ex depth.4ex%
+	\hskip-2.25ex%
+	\hbox to2.25ex{\color{fg}\inserttocsectionnumber.\inserttocsubsectionnumber}}%
+	\kern1.25ex\inserttocsubsection\par
+}
+
+\setbeamertemplate{itemize item}{\raisebox{0.6ex}{\vrule width 1ex height 1ex}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.6ex}{\scalebox{0.5}{\framebox{}}}}
+\setbeamertemplate{itemize subsubitem}{\raisebox{0.4ex}{\vrule width 0.5ex height 0.5ex}}
+
+\mode
+<all>

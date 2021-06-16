@@ -1,0 +1,51 @@
+% lmg 2020
+% ---
+% Gestaltung der Kopf- und Fußzeilen
+
+\mode
+<presentation>
+
+\defbeamertemplate*{headline}{Wismar}
+{%
+	\ifnum\thepage>1%
+		\hbox{%
+		\begin{beamercolorbox}[wd=0.8\paperwidth, ht=29pt, left]{toptext}
+			\hspace{1.5cm}
+			\usebeamerfont{toptext}\insertshorttitle,\ 
+			\usebeamerfont{toptext}\insertshortauthor
+		\end{beamercolorbox}
+		\begin{beamercolorbox}[wd=0.2\paperwidth, ht=29pt, right]{pagenumber}
+			\usebeamerfont{toptext}\insertframenumber/\inserttotalframenumber
+			\hspace{0.6cm}
+		\end{beamercolorbox}
+		}
+	\fi
+}
+
+\defbeamertemplate*{footline}{Wismar}
+{%
+	\begin{beamercolorbox}[wd=\paperwidth, ht=1.3em, dp=1.6em]{footer}
+		\insertnavigation{\paperwidth}
+	\end{beamercolorbox}
+}
+
+\defbeamertemplate*{frametitle}{Wismar}
+{%
+	\vspace{40pt}
+	\begin{beamercolorbox}{frametitle}
+		\usebeamerfont{frametitle}\insertframetitle
+	\end{beamercolorbox}
+	%~ \begin{beamercolorbox}{framesubtitle}
+		%~ \ifx\insertframesubtitle\empty\else%
+			%~ \usebeamerfont{framesubtitle}\insertframesubtitle
+		%~ \fi
+	%~ \end{beamercolorbox}
+	\ifx\insertframesubtitle\empty\else%
+		\begin{beamercolorbox}{framesubtitle}
+			\usebeamerfont{framesubtitle}\insertframesubtitle
+		\end{beamercolorbox}
+	\fi
+}
+
+\mode
+<all>

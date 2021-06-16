@@ -1,0 +1,66 @@
+% lmg 2020
+% ---
+% Zentraldokument für das "Wismar" Thema
+
+\RequirePackage{tikz}
+\RequirePackage[absolute,overlay]{textpos}
+
+\mode
+<presentation>
+
+% Logo der Hochschule in verschiedenen Versionen
+\pgfdeclareimage[height=4.5cm]{hswlogofull}{hswlogofull}
+\pgfdeclareimage[width=29pt]{hswlogoall}{hswlogoall}
+\pgfdeclareimage[width=29pt]{hswlogofiw}{hswlogofiw}
+\pgfdeclareimage[width=29pt]{hswlogofww}{hswlogofww}
+\pgfdeclareimage[width=29pt]{hswlogofg}{hswlogofg}
+
+% setze Nummerierung von Grafiken
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{enumerate items}[default]
+
+% Abkürzung der Fakultät ("all" für Hochschule allgemein)
+\newcommand{\fak}{all}
+% ausgeschriebener Name der Fakultät
+\newcommand{\fakname}{}
+
+\useinnertheme{rectangles}
+\useinnertheme{Wismar}
+\useoutertheme[subsection=false]{smoothbars}
+\useoutertheme{Wismar}
+\usecolortheme{Wismar}
+\usefonttheme{Wismar}
+
+% Hintergrund der Folien
+\setbeamertemplate{background}
+{%
+	\begin{tikzpicture}
+		\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+		% Hintergrund der Titelseite
+		\ifnum\thepage=1%
+			\ifnum\pdf@strcmp{\fak}{all}=0 %
+				\begin{scope}
+					\draw[fgorange, line width=0.15cm] (\paperwidth-172.7, -0.1) -- (\paperwidth-29,\paperheight) node[pos={1/3}] (a) {};
+					\draw[fwwgreen, line width=0.15cm] (a) -- (\paperwidth-29,\paperheight) node[pos=0.5] (b) {};
+					\draw[fiwblue, line width=0.15cm] (b) -- (\paperwidth-29,\paperheight);
+				\end{scope}
+			\fi
+			% farbige Hintergrundform der Titelseite (das "Segel")
+			\fill[themecolor] (\paperwidth-171, -0.1) -- (\paperwidth, -0.1) -- (\paperwidth,\paperheight) -- (\paperwidth-29,\paperheight) -- cycle;
+			% Logo der Hochschule
+			\node at (\paperwidth-68,3) {\pgfuseimage{hswlogofull}};
+		% Hintergrund "normaler" Folien
+		\else%
+			% Logo in klein; Farbe je Fakultät
+			\node (fischer) at (24pt,\paperheight-21.1pt) {\pgfuseimage{hswlogo\fak}};
+			% farbiger Balken der Kopfzeile; unterteilt in drei Segmente
+			% für individuelle Farben
+			\draw[barsega, line width=3pt] (0,\paperheight-34pt) -- (0.33\paperwidth,\paperheight-34pt);
+			\draw[barsegb, line width=3pt] (0.33\paperwidth,\paperheight-34pt) -- (0.66\paperwidth,\paperheight-34pt);
+			\draw[barsegc, line width=3pt] (0.66\paperwidth,\paperheight-34pt) -- (\paperwidth,\paperheight-34pt);
+		\fi
+	\end{tikzpicture}
+}
+
+\mode
+<all>

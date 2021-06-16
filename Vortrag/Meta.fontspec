@@ -1,0 +1,9 @@
+\defaultfontfeatures[Meta]
+{%
+	Extension = .ttf,
+	UprightFont	= font/MetaR,
+	BoldFont		= font/MetaB,
+	ItalicFont		= font/MetaRI,
+	BoldItalicFont	= font/MetaBI,
+	SmallCapsFont	= font/MetaBC
+}
