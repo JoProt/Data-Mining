@@ -41,35 +41,218 @@
 		\titlepage
 	\end{frame}
 
-	\begin{frame}{Gliederung}
+	\begin{frame}[allowframebreaks]{Gliederung}
 		\tableofcontents
 	\end{frame}
 		
-\section{Vorverarbeitung}
-\frame{\sectionpage}
-\begin{frame}{Rohdatensatz}
-\begin{figure}[!h]
+	\section{Entscheidungsbäume}	
+		\begin{frame}{Decision Tree Learner}
+			\begin{itemize}
+				\item Standardknoten von Knime
+				\item Zielattribut: nominal
+				\item Entscheidungsfindungsattribute: nominal, numerisch
+				\item Qualitätsmaße für Splitberechnung:
+				\begin{itemize}
+					\item Gini-Index
+					\item Gain-Ratio
+				\end{itemize}
+				\item Pruning möglich
+			\end{itemize}
+		\end{frame}
 
-	\includegraphics[scale= 0.55]{../pictures/roh.png}
-	\caption{Rohdatensatz}
-\end{figure}
-\end{frame}
-\begin{frame}{Datenvorverarbeitung}
-\begin{figure}[!h]
+		\begin{frame}{SimpleCart}	
+			\begin{itemize}
+				\item Weka-Knoten
+				\item Erzeugung von Binärbäumen
+				\item Pruning möglich
+				\item Je höher der Informationsgehalt eines Attributs in Bezug auf die Zielgröße, desto weiter oben im Baum findet
+sich dieses Attribut. 
+			\end{itemize}
+			\begin{center}
+				\begin{figure}[h]
+					\includegraphics[scale=0.2]{../pictures/cart-tree.png}
+					\caption{CART Tree Beispiel}		
+				\end{figure}		
+			\end{center}
+		\end{frame}
 
-	\includegraphics[scale= 0.45]{../pictures/preprocessing.png}
-	\caption{Knime Workflow zur Vorverarbeitung}
-\end{figure}
-\end{frame}
+		\begin{frame}{J48}		
+			\begin{itemize}
+				\item Weka-Knoten
+				\item C4.5 Algorithmus von J. Ross Quinlan
+				\item Ähnlich zu CART, jedoch kein Binärbaum
+				\item Deutlich breiter und weniger tief als CART
+				\item Pruning möglich
+			\end{itemize}
+		\end{frame}
 
-\begin{frame}
-\begin{figure}[!h]
+		\begin{frame}{NBTree}
+			\begin{itemize}
+				\item Weka-Knoten
+				\item Hybridalgorithmus aus Entscheidungsbaum- und Naive-Bayes-Klassifikatoren
+				\item \glqq{}klassische\grqq{} Knoten
+				\item Blätter enthalten Naive-Bayes’sche Klassifikatoren
+			\end{itemize}	
+			
+			\begin{center}
+				\begin{figure}[h]
+					\includegraphics[scale=1]{../pictures/NBTree-classifying-MAC-Felinae.jpg}
+					\caption{NB Tree Beispiel}		
+				\end{figure}		
+			\end{center}			
+		\end{frame}
 
-	\includegraphics[scale= 0.4]{../pictures/processed.png}
-	\caption{Vorverarbeitete Daten}
-\end{figure}
-\end{frame}
+		\begin{frame}{REPTree}	
+			\begin{itemize}
+				\item Weka-Knoten
+				\item basiert auf C4.5 Algorithmus
+				\item Generierung unter Berücksichtigung von:
+				\begin{itemize}
+					\item Informationsgewinn
+					\item Varianz
+				\end{itemize}
+			\end{itemize}	
+		\end{frame}
 
-\section{Knime Knoten}
-\frame{\sectionpage}
+		\begin{frame}{LMT}	
+			\begin{itemize}
+				\item Weka-Knoten
+				\item Blätter: lineare Regressionsfunktionen
+				\item stufenweiser Anpassungsprozess
+				\item Automatische Auswahl relevanter Attribute
+			\end{itemize}		
+		\end{frame}
+
+		\begin{frame}{DecisionStump}		
+			\begin{itemize}
+				\item Weka-Knoten
+				\item einstufiger Entscheidungsbaum
+				\item Vorhersage anhand des Wertes eines Eingabe-Features
+				\item Knoten: Schwellenwert
+				\item Blätter: Werte unterhalb und oberhalb des Schwellenwerts
+				\item Einsatz als \glqq{}schwache Lerner\grqq{} (z.B. Gesichtserkennung)
+			\end{itemize}
+		\end{frame}
+
+		\begin{frame}{J48Graft}	
+			\begin{itemize}
+				\item Weka-Knoten
+				\item nutzt den C4.5++ Algortihmus
+				\item Verbesserung durch \glqq{}all-tests-but-one-partition\grqq{} (ATBOP)
+				\item Reduzierte Rechenzeit
+				\item Reduzierte Komplexität des Baums
+			\end{itemize}	
+		\end{frame}
+
+		\begin{frame}{BFTree}	
+			\begin{itemize}
+				\item Weka-Knoten
+				\item Best-First-Entscheidungsbaum
+				\item \glqq{}beste\grqq{} Knoten zuerst expandieren
+				\item \glqq{}beste\grqq{} Knoten: maximalen Reduktion der Unreinheit (z.B. Gini-Index)
+				\item resultierende Baum nur in Reihenfolge unterschiedlich
+			\end{itemize}		
+		\end{frame}
+
+		\begin{frame}{RandomTree}	
+			\begin{itemize}
+				\item Weka-Knoten
+				\item zufällig ausgewählte Attribute an den Knoten
+				\item kein Pruning
+			\end{itemize}		
+		\end{frame}
+
+		\begin{frame}{RandomForest}		
+			\begin{itemize}
+				\item Weka-Knoten
+				\item Kombination von Baumprädiktoren
+				\item Abhängigkeit jedes Baumes von Werten eines Zufallsvektors
+				\item Zufallsvektor: unabhängig und besitzt gleiche Verteilung für alle Bäume im ‘Wald’
+			\end{itemize}	
+		\end{frame}
+
+	\section{Implementierung}	
+		\subsection{Entscheidungsbäume}
+			\begin{frame}{Gesamtworkflow}
+				\begin{center}					
+					\begin{figure}[h]
+						\includegraphics[scale=0.25]{../pictures/trees-workflow-gesamt.png}
+						\caption{Gesamtworkflow}		
+					\end{figure}	
+				\end{center}	
+			\end{frame}
+			
+			\begin{frame}{Ermittlung der Accuracys}
+				\begin{itemize}
+					\item Knoten zur Eingabe von:	
+					\begin{itemize}
+						\item vorherzusagender Spalte
+						\item Trainingsdatenaufteilung
+					\end{itemize}	
+					\item Extrahierung der Accuracys und Anzeige in Balkendiagramm
+				\end{itemize}
+				\begin{center}					
+					\begin{figure}[h]
+						\includegraphics[scale=0.2]{../pictures/trees-workflow-gesamt-zoomed.png}
+						\caption{Ermittlung der Accuracys}		
+					\end{figure}	
+				\end{center}	
+			\end{frame}
+			
+			\begin{frame}{Metaknoten `getPredictionAccuracy'}
+				\begin{itemize}
+					\item Aufteilung in Trainings und Testdaten	
+					\item Extrahierung der Accuracys
+				\end{itemize}
+				\begin{center}					
+					\begin{figure}[h]
+						\includegraphics[scale=0.25]{../pictures/trees-workflow-partitioning.png}
+						\caption{Inhalt des Metaknoten `getPredictionAccuracy'}		
+					\end{figure}	
+				\end{center}	
+			\end{frame}
+			
+			\begin{frame}{Metaknoten `getAccuracys'}		
+				\begin{columns}[T]
+   				\begin{column}{.5\textwidth}
+					\begin{itemize}
+						\item Metaknoten für verschiedene Entscheidungsbäume 
+						\item Gleiche Trainings- und Testmenge
+						\item Zusammenführung der Accuracys in eine Tabelle
+					\end{itemize}
+    				\end{column}    				
+    				\begin{column}{.5\textwidth}
+					\begin{figure}[h]
+						\includegraphics[scale=0.17]{../pictures/trees-workflow-getAccuracys.png}
+						\caption{Inhalt des Metaknoten `getAccuracys'}			
+					\end{figure}					
+    				\end{column}
+  				\end{columns}
+			\end{frame}
+			
+			\begin{frame}{Beispielhafter `getAccuracyWeka*' Knoten}		
+				\begin{itemize}
+					\item Lerner	
+					\item Vorhersage
+					\item Scoring
+					\item Extahierung der Accuracy
+				\end{itemize}
+				\begin{center}					
+					\begin{figure}[h]
+						\includegraphics[scale=0.25]{../pictures/trees-workflow-weka-example.png}
+						\caption{Inhalt des Metaknoten `getAccuracyWekaSimpleCart'}		
+					\end{figure}	
+				\end{center}	
+			\end{frame}
+			
+			\begin{frame}{Accuracy Chart}		
+				\begin{center}					
+					\begin{figure}[h]
+						\includegraphics[scale=0.15]{../pictures/chart_accuracy.png}
+						\caption{Balkendiagramm für `gender' und Trainingssatz von 70\%}		
+					\end{figure}	
+				\end{center}	
+			\end{frame}
+			
+			
 \end{document}
