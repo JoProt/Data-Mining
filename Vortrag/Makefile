@@ -1,4 +1,4 @@
-TARG = kap6_pres
+TARG = vortrag_data_mining
 
 # Für die Meta-Schrift brauchen wir eine spezielle
 # LaTeX-Engine -> entweder xelatex oder lualatex
