@@ -44,33 +44,33 @@
 	\begin{frame}[allowframebreaks]{Gliederung}
 		\tableofcontents
 	\end{frame}
-		\section{Vorverarbeitung}
-\frame{\sectionpage}
-\begin{frame}{Rohdatensatz}
-\begin{figure}[!h]
 
-	\includegraphics[scale= 0.55]{../pictures/roh.png}
-	\caption{Rohdatensatz}
-\end{figure}
-\end{frame}
-\begin{frame}{Datenvorverarbeitung}
-\begin{figure}[!h]
+	\section{Vorverarbeitung}
+	\frame{\sectionpage}
+		
+		\begin{frame}{Rohdatensatz}
+			\begin{figure}[!h]
+				\includegraphics[scale= 0.55]{../pictures/roh.png}
+				\caption{Rohdatensatz}
+			\end{figure}
+		\end{frame}
 
-	\includegraphics[scale= 0.45]{../pictures/preprocessing.png}
-	\caption{Knime Workflow zur Vorverarbeitung}
-\end{figure}
-\end{frame}
+		\begin{frame}{Datenvorverarbeitung}
+			\begin{figure}[!h]
+				\includegraphics[scale= 0.4]{../pictures/preprocessing.png}
+				\caption{Knime Workflow zur Vorverarbeitung}
+			\end{figure}
+		\end{frame}
 
-\begin{frame}
-\begin{figure}[!h]
+		\begin{frame}
+			\begin{figure}[!h]
+				\includegraphics[scale= 0.4]{../pictures/processed.png}
+				\caption{Vorverarbeitete Daten}
+			\end{figure}
+		\end{frame}
 
-	\includegraphics[scale= 0.4]{../pictures/processed.png}
-	\caption{Vorverarbeitete Daten}
-\end{figure}
-\end{frame}
-
-\section{Entscheidungsbäume}	
-\frame{\sectionpage}
+	\section{Entscheidungsbäume}	
+	\frame{\sectionpage}
 	
 		\begin{frame}{Decision Tree Learner}
 			\begin{itemize}
@@ -196,66 +196,71 @@ sich dieses Attribut.
 				\item Zufallsvektor: unabhängig und besitzt gleiche Verteilung für alle Bäume im ‘Wald’
 			\end{itemize}	
 		\end{frame}
-	\section{Cluster}	
-	\frame{\sectionpage}		
-	\begin{frame}
-	\begin{itemize}
-	\item kMeans
-	\item Dichtebasiertes Clustern
-	\item Hierarchisches Clustern
-	\end{itemize}
-	\end{frame}
 	
-	\begin{frame}{kMeans Algortihmus}
-	\begin{itemize}
-	\item 3 Schritte: 1. Initialisierung, 2. Zuordnung, 3. Aktualisierung
-	\item Wiederholen von Schritt 2 und 3 bis Abbruchbedingun erreicht
-	\item kMeans Knoten ist in Auslieferungsversion von KNIME enthalten
-	\item Keine dynamische Anzahl an Cluster
-	\item Abbruchbedingung entweder max Iterationen oder Schritt 2 und 3 bringen keine Änderungen mehr
-	\item Distanzberechnung mit euklidischer Distanz (Lineare Distanz von 2 Punkten im Raum)
-	\end{itemize}
-	\end{frame}
-	\begin{frame}{Dichtebasiertes Clustern}
-	\begin{itemize}
-	\item DBSCAN Knoten in KNIME
-	\item Density-Based Spatial Clustering of Applications with Noise
-	\item Unterteilung der Daten in 3 Kategorien: Core Punkte, Border Punkte, Noise Punkte
-	\item Clusterbildung durch verbinden von Core Punkten
-	\item Punkte innerhalb der Core Punkte - Distanz zählen zum Cluster, alle außerhalb sind Noise
-	\end{itemize}
-	\end{frame}
-	\begin{frame}
-	\begin{center}
+	\section{Cluster}	
+	\frame{\sectionpage}	
+		
+		\begin{frame}{Cluster}
+			\begin{itemize}
+				\item kMeans
+				\item Dichtebasiertes Clustern
+				\item Hierarchisches Clustern
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}{kMeans Algortihmus}
+			\begin{itemize}
+				\item 3 Schritte: 1. Initialisierung, 2. Zuordnung, 3. Aktualisierung
+				\item Wiederholen von Schritt 2 und 3 bis Abbruchbedingun erreicht
+				\item kMeans Knoten ist in Auslieferungsversion von KNIME enthalten
+				\item Keine dynamische Anzahl an Cluster
+				\item Abbruchbedingung entweder max Iterationen oder Schritt 2 und 3 bringen keine Änderungen mehr
+				\item Distanzberechnung mit euklidischer Distanz (Lineare Distanz von 2 Punkten im Raum)
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}{Dichtebasiertes Clustern}
+			\begin{itemize}
+				\item DBSCAN Knoten in KNIME
+				\item Density-Based Spatial Clustering of Applications with Noise
+				\item Unterteilung der Daten in 3 Kategorien: Core Punkte, Border Punkte, Noise Punkte
+				\item Clusterbildung durch verbinden von Core Punkten
+				\item Punkte innerhalb der Core Punkte - Distanz zählen zum Cluster, alle außerhalb sind Noise
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}{~}
+			\begin{center}
 				\begin{figure}[h]
 					\includegraphics[scale=0.5]{../pictures/dbscan.png}
 					\caption{DBSCAN Algorithmus}		
 				\end{figure}		
 			\end{center}	
-	\end{frame}
-	
-	\begin{frame}{Hierarchisches Clustern}
-	\begin{itemize}
-	\item Sowohl Build-In Knoten als auch WEKA Extension
-	\item Berechnen der Punktdistanzen durch diverse Distanzmaße (Euklidische-, Manhatten-, ...-Distanz)
-	\item Beide Knoten sind agglomerativ (bottom-up): Iterative Bildung von großen Clustern aus bestehenden
-	\item Darstellung in Dendrogrammen
-	\end{itemize}
-	\end{frame}
-	
-	\begin{frame}{Silhouettenkoeffizient}
-	\begin{itemize}
-	\item Berechnet die Qualität von Clustern
-	\item Berechnent für jede Zeile wie gut das ausgewählte Cluster passt
-	\item Reichweite von -1 bis 1 $\rightarrow$ je höher der Wert, desto besser die Clusterung
-	\end{itemize}
-	\begin{center}
+		\end{frame}
+		
+		\begin{frame}{Hierarchisches Clustern}
+			\begin{itemize}
+				\item Sowohl Build-In Knoten als auch WEKA Extension
+				\item Berechnen der Punktdistanzen durch diverse Distanzmaße (Euklidische-, Manhatten-, ...-Distanz)
+				\item Beide Knoten sind agglomerativ (bottom-up): Iterative Bildung von großen Clustern aus bestehenden
+				\item Darstellung in Dendrogrammen
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}{Silhouettenkoeffizient}
+			\begin{itemize}
+				\item Berechnet die Qualität von Clustern
+				\item Berechnent für jede Zeile wie gut das ausgewählte Cluster passt
+				\item Reichweite von -1 bis 1 $\rightarrow$ je höher der Wert, desto besser die Clusterung
+			\end{itemize}
+			\begin{center}
 				\begin{figure}[h]
 					\includegraphics[scale=1]{../pictures/formel.png}
 					\caption{Formel Silhouettenkoeffizient}		
 				\end{figure}		
 			\end{center}	
-	\end{frame}
+		\end{frame}
+	
 	\section{Implementierung}	
 	\frame{\sectionpage}
 	
@@ -340,6 +345,7 @@ sich dieses Attribut.
 					\end{figure}	
 				\end{center}	
 			\end{frame}
+			
 	\subsection{Cluster}
 	\begin{frame}
 	
