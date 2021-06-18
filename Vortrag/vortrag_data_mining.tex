@@ -211,7 +211,7 @@ sich dieses Attribut.
 		\begin{frame}{kMeans Algortihmus}
 			\begin{itemize}
 				\item 3 Schritte: 1. Initialisierung, 2. Zuordnung, 3. Aktualisierung
-				\item Wiederholen von Schritt 2 und 3 bis Abbruchbedingun erreicht
+				\item Wiederholen von Schritt 2 und 3 bis Abbruchbedingung erreicht
 				\item kMeans Knoten ist in Auslieferungsversion von KNIME enthalten
 				\item Keine dynamische Anzahl an Cluster
 				\item Abbruchbedingung entweder max Iterationen oder Schritt 2 und 3 bringen keine Änderungen mehr
@@ -250,7 +250,7 @@ sich dieses Attribut.
 		\begin{frame}{Silhouettenkoeffizient}
 			\begin{itemize}
 				\item Berechnet die Qualität von Clustern
-				\item Berechnent für jede Zeile wie gut das ausgewählte Cluster passt
+				\item Berechnet für jede Zeile wie gut das ausgewählte Cluster passt
 				\item Reichweite von -1 bis 1 $\rightarrow$ je höher der Wert, desto besser die Clusterung
 			\end{itemize}
 			\begin{center}
@@ -412,6 +412,14 @@ sich dieses Attribut.
 					\begin{figure}[h]
 						\includegraphics[scale=0.7]{../pictures/sil_dens.png}
 						\caption{Clusterbewertung DBSCAN}		
+					\end{figure}	
+				\end{center}	
+	\end{frame}
+	\begin{frame}
+	\begin{center}					
+					\begin{figure}[h]
+						\includegraphics[scale=0.6]{../pictures/plotly_dense.png}
+						\caption{Clusterung DBSCAN}		
 					\end{figure}	
 				\end{center}	
 	\end{frame}
